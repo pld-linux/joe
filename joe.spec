@@ -95,10 +95,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir /etc/joe
 %config /etc/joe/*
 %{_mandir}/man1/*
-
-%changelog
-* Sat May 29 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.8-20]
-- based on RH spec,
-- spec rewrited by PLD team,
-- pl translation Wojtek ¦lusarczyk <wojtek@shadow.eu.org>.
