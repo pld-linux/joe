@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.8
-Release:	30
+Release:	31
 License:	GPL
 Group:		Applications/Editors
 Group(pt):	X11/Aplicações/Editores
@@ -27,6 +27,7 @@ Patch10:	joe-deadjoe.patch
 Patch11:	joe-security.patch
 Patch12:	joe-resize.patch
 Patch13:	joe-segv.patch
+Patch14:	joe-deadjoe2.patch
 Icon:		joe.xpm
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -81,6 +82,7 @@ için en cok tavsiye edilen metin düzenleyicisidir.
 %patch11 -p1
 %patch12 -p1
 %patch13 -p1
+%patch14 -p1
 
 %build
 make	WHEREJOE=%{_bindir} \
