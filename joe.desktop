@@ -10,4 +10,5 @@ Exec=joe
 Terminal=true
 Type=Application
 Encoding=UTF-8
+Categories=Utility;TextEditor;
 # vi: encoding=utf-8
