@@ -1,0 +1,76 @@
+diff -Nru joe/jmacsrc joe.new/jmacsrc
+--- joe/jmacsrc	Thu Mar  4 22:00:49 1999
++++ joe.new/jmacsrc	Thu Mar  4 22:02:58 1999
+@@ -393,6 +393,7 @@
+ edit		^X ^F		Edit a file: creates orphaned buffers
+ eof		^[ >		Go to end of file
+ eol		.kH		Go to end of line
++eol		.@7		Go to end of line
+ eol		^E
+ eop		^[ n		(uemacs)
+ execmd		^[ x
+@@ -480,6 +481,7 @@
+ eofmenu		^K V
+ eofmenu		^K ^V
+ eofmenu		^K v
++eolmenu		.@7
+ eolmenu		.kH
+ eolmenu		^E
+ ltarwmenu	.kl
+diff -Nru joe/joerc joe.new/joerc
+--- joe/joerc	Thu Mar  4 22:00:49 1999
++++ joe.new/joerc	Thu Mar  4 22:03:39 1999
+@@ -477,6 +477,7 @@
+ eof		^K ^V
+ eof		^K v
+ eol		.kH		Go to end of line
++eol		.@7		Go to end of line
+ eol		^E
+ exsave		^K X		Save and exit
+ exsave		^K ^X
+@@ -570,6 +571,7 @@
+ eofmenu		^K ^V
+ eofmenu		^K v
+ eolmenu		.kH
++eolmenu		.@7
+ eolmenu		^E
+ ltarwmenu	.kl
+ ltarwmenu	^B
+diff -Nru joe/jpicorc joe.new/jpicorc
+--- joe/jpicorc	Thu Mar  4 22:00:49 1999
++++ joe.new/jpicorc	Thu Mar  4 22:02:27 1999
+@@ -372,6 +372,7 @@
+ eof		^[ ^V
+ eof		^[ v
+ eol		.kH		Go to end of line
++eol		.@7		Go to end of line
+ eol		^E
+ execmd		^[ X		Prompt for command to execute
+ execmd		^[ ^X		Prompt for command to execute
+@@ -455,6 +456,7 @@
+ eofmenu		^K ^V
+ eofmenu		^K v
+ eolmenu		.kH
++eolmenu		.@7
+ eolmenu		^E
+ ltarwmenu	.kl
+ ltarwmenu	^B
+diff -Nru joe/jstarrc joe.new/jstarrc
+--- joe/jstarrc	Thu Mar  4 22:00:49 1999
++++ joe.new/jstarrc	Thu Mar  4 22:04:13 1999
+@@ -403,6 +403,7 @@
+ eof		^Q ^C
+ eof		^Q c
+ eol		.kH		Go to end of line
++eol		.@7		Go to end of line
+ eol		^Q D
+ eol		^Q ^D
+ eol		^Q d
+@@ -527,6 +528,7 @@
+ eofmenu		^Q ^C
+ eofmenu		^Q c
+ eolmenu		.kH
++eolmenu		.@7
+ eolmenu		^Q D
+ eolmenu		^Q ^D
+ eolmenu		^Q d
