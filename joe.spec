@@ -20,7 +20,7 @@ Patch6:		joe-mips.patch
 Patch7:		joe-port.patch
 Patch8:		joe-kbdfix.patch
 Patch9:		joe-locale.patch
-BuildPrereq:	ncurses-devel
+BuildRequires:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
