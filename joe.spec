@@ -59,6 +59,8 @@ için en cok tavsiye edilen metin düzenleyicisidir.
 %patch1 -p1
 
 %build
+aclocal
+autoconf
 %configure
 %{__make}
 	
