@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.8
-Release:	28
+Release:	29
 License:	GPL
 Group:		Applications/Editors
 Group(pt):	X11/Aplicações/Editores
