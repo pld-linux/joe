@@ -1,0 +1,20 @@
+--- utils.c.old	Tue Mar 19 20:03:03 2002
++++ utils.c	Tue Mar 19 20:23:48 2002
+@@ -34,7 +34,7 @@
+ /*
+  * Define function isblank(c)
+  *	!!! code which uses isblank() assumes tested char is evaluated
+- *	only once, so it musn't be a macro
++ *	only once, so it mustn't be a macro
+  */
+ #ifndef HAVE_WORKING_ISBLANK
+ int isblank(int c)
+@@ -73,7 +73,7 @@
+  */
+ unsigned int isalnum_(unsigned int c)
+ {
+-	return (isalnum(c) || (c == 95));
++	return (c >= 0 && c < 256 && (isalnum(c) || (c == 95)));
+ }
+ 
+ /* Versions of 'read' and 'write' which automatically retry when interrupted */
