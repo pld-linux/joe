@@ -1,22 +1,24 @@
-Summary:     Easy to use editor
-Name:        joe
-Version:     2.8
-Release:     14
-Copyright:   GPL
-Group:       Applications/Editors
-Group(pl):   Aplikacje/Edytory
-Source:      ftp://ftp.std.com/src/editors/%{name}%{version}.tar.Z
-Patch0:      joe2.8-config.patch
-Patch1:      joe2.8-time.patch
-Patch2:      joe2.8-axphack.patch
-Patch3:      joe2.8-make.patch
-Patch4:      joe-2.8-asis.patch
-Patch5:      joe-2.8.patch
-Buildroot:   /tmp/buildroot-%{name}-%{version}
-Summary(de): einfach handzuhabender Editor
-Summary(fr): éditeur facile à utiliser
-Summary(pl): £atwy w u¿yciu edytor tekstowy
-Summary(tr): Kolay kullanýmlý metin düzenleyici
+Summary:	Easy to use editor
+Summary(de):	einfach handzuhabender Editor
+Summary(fr):	éditeur facile à utiliser
+Summary(pl):	£atwy w u¿yciu edytor tekstowy
+Summary(tr):	Kolay kullanýmlý metin düzenleyici
+Name:		joe
+Version:	2.8
+Release:	17
+Copyright:	GPL
+Group:		Applications/Editors
+Group(pl):	Aplikacje/Edytory
+Source:		ftp://ftp.std.com/src/editors/%{name}%{version}.tar.Z
+Patch0:		joe-config.patch
+Patch1:		joe-time.patch
+Patch2:		joe-axphack.patch
+Patch3:		joe-make.patch
+Patch4:		joe-asis.patch
+Patch5:		joe-man.patch
+Patch6:		joe-mips.patch
+Patch7:		joe-port.patch
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 Joe is a friendly and easy to use editor.  It has a nice interface and would 
@@ -48,22 +50,22 @@ edilen metin düzenleyicisidir.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1 -b .config
-%patch1 -p1 -b .time
+%patch0 -p1
+%patch1 -p1
 
 %ifarch axp
-%patch2 -p1 -b .axp
+%patch2 -p1
 %endif
 
-%patch3 -p1 -b .make
-%patch4 -p1 -b .asis
+%patch3 -p1
+%patch4 -p1
 %patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 %build
-make	CFLAGS="$RPM_OPT_FLAGS" \
-	EXTRALIBS=-lncurses \
-	WHEREJOE=/usr/bin \
-	WHERERC=/etc/joe \
+make	WHEREJOE=/usr/bin \
+	WHERERC=/etc/joe
 	
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -72,20 +74,34 @@ make install \
 	WHERERC=$RPM_BUILD_ROOT/etc/joe \
 	WHEREMAN=$RPM_BUILD_ROOT/usr/man/man1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/*
+echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/jstar.1
+echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/jmacs.1
+echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/rjoe.1
+echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/jpico.1
 
-%files
-%attr(755, root, root) /usr/bin/*
-%attr(755, root, root) %dir /etc/joe
-%attr(644, root, root) %config /etc/joe/*
-%attr(644, root,  man) /usr/man/man1/*
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%files
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/bin/*
+%dir /etc/joe
+%config /etc/joe/*
+%attr(644,root, man) /usr/man/man1/*
+
 %changelog
+* Wed Feb 17 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.8-17]
+- simplification in %files,
+- added man, mips and potr patches,
+- added man pages for jstar, jmacs, rjoe and jpico as *roff include to
+  joe(1),
+- back to libncurses.
+
 * Thu Aug 27 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [2.8.14]
+  [2.8-14]
 - added patch adopted from Debian sources,
 - added pl translation.
 
@@ -94,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 - added -q %setup parameter,
 - config files moved to /etc,
 - joe is now linked with libslang.
- 
+
 * Fri May 08 1998 Cristian Gafton <gafton@redhat.com>
 - enable -asis in the config files so international keyboards will be better
   supported
