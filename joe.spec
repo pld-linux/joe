@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.9.6
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
@@ -18,6 +18,8 @@ Patch0:		%{name}-Makefile_fix.patch
 Patch1:		%{name}-2.9.6--format.diff
 Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
