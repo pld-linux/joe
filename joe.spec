@@ -4,8 +4,8 @@ Summary(fr):	éditeur facile à utiliser
 Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
-Version:	2.9.6
-Release:	5
+Version:	2.9.7
+Release:	1
 License:	GPL
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
@@ -15,9 +15,8 @@ Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{version}.tgz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	%{name}-non-english-man-pages.tar.bz2
-Patch0:		%{name}-Makefile_fix.patch
-Patch1:		%{name}-2.9.6--format.diff
-Patch2:		%{name}-pl_man.patch
+Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-pl_man.patch
 Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
@@ -60,12 +59,13 @@ için en cok tavsiye edilen metin düzenleyicisidir.
 %prep
 %setup -q -a3
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
+%patch1 -p0
 
 %build
+rm -f missing
 aclocal
 autoconf
+automake -a -c
 %configure
 %{__make}
 	
