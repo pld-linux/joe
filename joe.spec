@@ -88,7 +88,7 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 розробки програм ф╕рми Borland (так званий стандарт WordStar).
 
 %prep
-%setup -q -a3 -n %{name}-%{version}
+%setup -q -a3
 %patch0 -p0
 %patch1 -p0
 #%patch2 -p0
