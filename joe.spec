@@ -2,7 +2,9 @@ Summary:	Easy to use editor
 Summary(de):	einfach handzuhabender Editor
 Summary(fr):	Иditeur facile Ю utiliser
 Summary(pl):	ёatwy w u©yciu edytor tekstowy
+Summary(ru):	Простой в использовании текстовый редактор
 Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
+Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
 Version:	2.9.8pre1
 %define		tar_version	2.9.8-pre1
@@ -22,7 +24,7 @@ URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
-BuildRoot:	%{tmpdir}/%{name}-%{tar_version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/joe
 
@@ -50,11 +52,21 @@ mo©e byФ dobrym wyborem dla pocz╠tkuj╠cych u©ytkownikСw Linuxa. Joe
 u©ywa tej samej kombinacji klawiszy co WordStar i oprogramowae
 Borland'a.
 
+%description -l ru
+Joe - это дружественный, простой в использовании текстовый редактор. У
+него приятный интерфейс и такие же функции клавиш, как и в системах
+разработки программ фирмы Borland (так называемый стандарт WordStar).
+
 %description -l tr
 Joe, kЭГЭk ve kullanЩmЩ kolay bir metin dЭzenleyicisidir. Borland
 firmasЩnЩn geliЧtirme ortamЩna alЩЧkЩn olanlar aynЩ kЩsayol tuЧlarЩnЩ
 kullanmaktan memnun olacaklardЩr. BasitliПi nedeni ile baЧlayanlar
 iГin en cok tavsiye edilen metin dЭzenleyicisidir.
+
+%description -l uk
+Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
+при╓мний ╕нтерфейс ╕ так╕ ж сам╕ функц╕╖ клав╕ш, як ╕ в системах
+розробки програм ф╕рми Borland (так званий стандарт WordStar).
 
 %prep
 %setup -q -a3 -n %{name}-%{tar_version}
