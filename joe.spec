@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.8
-Release:	18
+Release:	19
 Copyright:	GPL
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
@@ -18,6 +18,7 @@ Patch4:		joe-asis.patch
 Patch5:		joe-man.patch
 Patch6:		joe-mips.patch
 Patch7:		joe-port.patch
+Patch8:		joe-kbdfix.patch
 Requires:	ncurses >= 4.2-12
 Buildroot:	/tmp/%{name}-%{version}-root
 
@@ -63,6 +64,7 @@ edilen metin düzenleyicisidir.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 make	WHEREJOE=/usr/bin \
@@ -93,6 +95,10 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/man1/*
 
 %changelog
+* Thu Mar  4 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.8-19]
+- added joe-kbdfix.patch with fix End key handling.
+
 * Mon Feb 22 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.8-18]
 - removed man group from man pages.
@@ -100,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Feb 17 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.8-17]
 - simplification in %files,
-- added man, mips and port patches,
+- added man, mips and potr patches,
 - added man pages for jstar, jmacs, rjoe and jpico as *roff include to
   joe(1),
 - back to libncurses,
@@ -136,4 +142,4 @@ rm -rf $RPM_BUILD_ROOT
 - added support for buildroot and BuildRoot
 
 * Mon Jul 21 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+- built against glibcc
