@@ -1,7 +1,7 @@
 diff -ur pl.old/man1/joe.1 pl/man1/joe.1
---- pl.old/man1/joe.1	Fri Feb  9 15:52:36 2001
-+++ pl/man1/joe.1	Thu Oct 25 00:33:19 2001
-@@ -83,14 +83,14 @@
+--- pl.old/man1/joe.1	Thu Oct 25 00:41:55 2001
++++ pl/man1/joe.1	Thu Mar 21 20:00:37 2002
+@@ -87,14 +87,14 @@
  .PP
  Mo¿esz dostosowaæ uk³ad klawiatury, ekrany pomocy i wiele domy¶lnych
  sposobów zachowywania siê edytora kopiuj±c plik inicjuj±cy JOE'go
@@ -18,7 +18,7 @@ diff -ur pl.old/man1/joe.1 pl/man1/joe.1
  .PP
  .\" There are a number of other obscure invocation parameters
  Istnieje wiele innych nieoczywistych parametrów wywo³ania, jakie byæ mo¿e musz±
-@@ -790,7 +790,7 @@
+@@ -794,7 +794,7 @@
  .SH PLIK joerc
  Opcje \fB^T\fR, ekrany pomocy i przypisania sekwencji klawiszy do poleceñ
  edytora zdefiniowane s± w pliku inicjuj±cym JOE'go. Po zrobieniu kopii
