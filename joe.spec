@@ -62,7 +62,7 @@ sont aussi utilisées par les environnements de développement Borland.
 %description -l pl
 Joe jest ³atwym i przyjemnym w u¿yciu edytorem, ma ³adny interfejs i
 mo¿e byæ dobrym wyborem dla pocz±tkuj±cych u¿ytkowników Linuksa. Joe
-u¿ywa tej samej kombinacji klawiszy co WordStar i oprogramowae
+u¿ywa tej samej kombinacji klawiszy co WordStar i oprogramowanie
 Borland'a.
 
 %description -l ru
