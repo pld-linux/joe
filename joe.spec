@@ -4,33 +4,23 @@ Summary(fr):	éditeur facile à utiliser
 Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
-Version:	2.8
-Release:	31
+Version:	2.9.6
+Release:	2
 License:	GPL
 Group:		Applications/Editors
-Group(pt):	X11/Aplicações/Editores
+Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
-Source0:	ftp://ftp.std.com/src/editors/%{name}%{version}.tar.Z
-Source1:	joe.png
-Source2:	joe.desktop
-Patch0:		joe-config.patch
-Patch1:		joe-time.patch
-Patch2:		joe-axphack.patch
-Patch3:		joe-make.patch
-Patch4:		joe-asis.patch
-Patch5:		joe-man.patch
-Patch6:		joe-mips.patch
-Patch7:		joe-port.patch
-Patch8:		joe-kbdfix.patch
-Patch9:		joe-locale.patch
-Patch10:	joe-deadjoe.patch
-Patch11:	joe-security.patch
-Patch12:	joe-resize.patch
-Patch13:	joe-segv.patch
-Patch14:	joe-deadjoe2.patch
+Group(pt):	Aplicações/Editores
+Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{version}.tgz
+Source1:	%{name}.png
+Source2:	%{name}.desktop
+Patch0:		%{name}-Makefile_fix.patch
 Icon:		joe.xpm
+URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sysconfdir	/etc/joe
 
 %description
 Joe is a friendly and easy to use editor. It has a nice interface and
@@ -63,49 +53,27 @@ kullanmaktan memnun olacaklardýr. Basitliði nedeni ile baþlayanlar
 için en cok tavsiye edilen metin düzenleyicisidir.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
-%patch1 -p1
-
-%ifarch axp
-%patch2 -p1
-%endif
-
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p0
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
+%setup -q
+%patch -p1
 
 %build
-make	WHEREJOE=%{_bindir} \
-WHERERC=%{_sysconfdir}/joe
+%configure
+%{__make}
 	
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Editors,%{_prefix}/X11R6/share/pixmaps}
+%{__install} -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Editors}
 
 %{__make} install \
-	WHEREJOE=$RPM_BUILD_ROOT%{_bindir} \
-	WHERERC=$RPM_BUILD_ROOT%{_sysconfdir}/joe \
-	WHEREMAN=$RPM_BUILD_ROOT%{_mandir}/man1
+	DESTDIR=$RPM_BUILD_ROOT
 
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jstar.1
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jmacs.1
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/rjoe.1
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jpico.1
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_prefix}/X11R6/share/pixmaps
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Editors
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -113,8 +81,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%dir %{_sysconfdir}/joe
-%config %{_sysconfdir}/joe/*
+%dir %{_sysconfdir}
+%config %{_sysconfdir}/*
 %{_mandir}/man1/*
 %{_applnkdir}/Editors/*
-%{_prefix}/X11R6/share/pixmaps/*
+%{_pixmapsdir}/*
