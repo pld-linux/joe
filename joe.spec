@@ -90,7 +90,7 @@ WHERERC=%{_sysconfdir}/joe
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_applnkdir}/Editors,%{_prefix}/X11R6/share/pixmaps}
 
-make install \
+%{__make} install \
 	WHEREJOE=$RPM_BUILD_ROOT%{_bindir} \
 	WHERERC=$RPM_BUILD_ROOT%{_sysconfdir}/joe \
 	WHEREMAN=$RPM_BUILD_ROOT%{_mandir}/man1
