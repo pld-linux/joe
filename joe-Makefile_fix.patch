@@ -1,0 +1,65 @@
+--- joe-2.9.6/Makefile.in~	Wed Apr 11 22:08:09 2001
++++ joe-2.9.6/Makefile.in	Fri Jun 22 03:42:38 2001
+@@ -11,7 +11,7 @@
+ ### If you want to build package just set package_prefix
+ ### to directory where you want to build it
+ ###########################################################
+-package_prefix = 
++DESTDIR = 
+ 
+ prefix = @prefix@
+ exec_prefix = @exec_prefix@
+@@ -47,7 +47,7 @@
+ 
+ # C compiler options: make's built-in rules use this variable
+ 
+-CFLAGS = -O2 -fsigned-char -fomit-frame-pointer -pipe
++CFLAGS = @CFLAGS@
+ 
+ # You may have to include some extra libraries
+ # for some systems
+@@ -114,29 +114,26 @@
+ 	$(CC) $(CFLAGS) -o termidx termidx.o
+ 
+ install: $(ALL) installdirs
+-	rm -f $(package_prefix)$(bindir)/joe $(package_prefix)$(bindir)/jmacs $(package_prefix)$(bindir)/jstar $(package_prefix)$(bindir)/jpico $(package_prefix)$(bindir)/rjoe $(package_prefix)$(bindir)/termidx
++	$(INSTALL_PROGRAM) joe $(DESTDIR)$(bindir)
+ 
+-	$(INSTALL_PROGRAM) -s joe $(package_prefix)$(bindir)
++	ln -s joe $(DESTDIR)$(bindir)/jmacs
++	ln -s joe $(DESTDIR)$(bindir)/jstar
++	ln -s joe $(DESTDIR)$(bindir)/jpico
++	ln -s joe $(DESTDIR)$(bindir)/rjoe
++
++	$(INSTALL_PROGRAM) termidx $(DESTDIR)$(bindir)
++
++	$(INSTALL_DATA) joerc $(DESTDIR)$(sysconfdir)
++	$(INSTALL_DATA) jmacsrc $(DESTDIR)$(sysconfdir)
++	$(INSTALL_DATA) jstarrc $(DESTDIR)$(sysconfdir)
++	$(INSTALL_DATA) rjoerc $(DESTDIR)$(sysconfdir)
++	$(INSTALL_DATA) jpicorc $(DESTDIR)$(sysconfdir)
+ 
+-	(cd $(package_prefix)$(bindir) && ln -s joe jmacs)
+-	(cd $(package_prefix)$(bindir) && ln -s joe jstar)
+-	(cd $(package_prefix)$(bindir) && ln -s joe jpico)
+-	(cd $(package_prefix)$(bindir) && ln -s joe rjoe)
+-
+-	$(INSTALL_PROGRAM) -s termidx $(package_prefix)$(bindir)
+-
+-	if [ ! -f $(package_prefix)$(sysconfdir)/joerc ]; then $(INSTALL_DATA) joerc $(package_prefix)$(sysconfdir); fi
+-	if [ ! -f $(package_prefix)$(sysconfdir)/jmacsrc ]; then $(INSTALL_DATA) jmacsrc $(package_prefix)$(sysconfdir); fi
+-	if [ ! -f $(package_prefix)$(sysconfdir)/jstarrc ]; then $(INSTALL_DATA) jstarrc $(package_prefix)$(sysconfdir); fi
+-	if [ ! -f $(package_prefix)$(sysconfdir)/rjoerc ]; then $(INSTALL_DATA) rjoerc $(package_prefix)$(sysconfdir); fi
+-	if [ ! -f $(package_prefix)$(sysconfdir)/jpicorc ]; then $(INSTALL_DATA) jpicorc $(package_prefix)$(sysconfdir); fi
+-
+-	rm -f $(package_prefix)$(man1dir)/joe.1
+-	$(INSTALL_DATA) joe.man $(package_prefix)$(man1dir)/joe.1
++	$(INSTALL_DATA) joe.man $(DESTDIR)$(man1dir)/joe.1
+ 
+ clean:
+ 	rm -f $(OBJS) termidx.o joeconf conf.o config.h joe jmacs jpico jstar rjoe termidx
+ 	rm -f joe-config.h config.log config.status config.cache config.status
+ 
+ installdirs: mkinstalldirs
+-	$(srcdir)/mkinstalldirs $(package_prefix)$(bindir) $(package_prefix)$(man1dir) $(package_prefix)$(sysconfdir)
++	$(srcdir)/mkinstalldirs $(DESTDIR)$(bindir) $(DESTDIR)$(man1dir) $(DESTDIR)$(sysconfdir)
