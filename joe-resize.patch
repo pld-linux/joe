@@ -1,0 +1,15 @@
+--- joe/scrn.c~	Thu Oct  6 03:10:07 1994
++++ joe/scrn.c	Thu Aug 12 19:02:26 1999
+@@ -406,10 +406,11 @@
+ t->scrn=0; t->sary=0; t->updtab=0; t->compose=0;
+ t->ofst=0; t->ary=0;
+ t->htab=(struct hentry *)malloc(256*sizeof(struct hentry));
+-nresize(t,t->co,t->li);
+ 
+ /* Send out terminal initialization string */
+ if(t->ti) texec(t->cap,t->ti,1);
++
++nresize(t,t->co,t->li);
+ 
+ return t;
+ } 
