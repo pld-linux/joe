@@ -77,14 +77,14 @@ rm -rf $RPM_BUILD_ROOT
 make install \
 	WHEREJOE=$RPM_BUILD_ROOT/usr/bin \
 	WHERERC=$RPM_BUILD_ROOT/etc/joe \
-	WHEREMAN=$RPM_BUILD_ROOT/usr/man/man1
+	WHEREMAN=$RPM_BUILD_ROOT%{_mandir}/man1
 
-echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/jstar.1
-echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/jmacs.1
-echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/rjoe.1
-echo ".so joe" > $RPM_BUILD_ROOT/usr/man/man1/jpico.1
+echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jstar.1
+echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jmacs.1
+echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/rjoe.1
+echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jpico.1
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -94,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/*
 %dir /etc/joe
 %config /etc/joe/*
-/usr/man/man1/*
+%{_mandir}/man1/*
 
 %changelog
 * Sat Apr 24 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
