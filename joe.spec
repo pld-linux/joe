@@ -18,6 +18,7 @@ Patch4:		joe-asis.patch
 Patch5:		joe-man.patch
 Patch6:		joe-mips.patch
 Patch7:		joe-port.patch
+Requires:	ncurses >= 4.2-12
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -98,7 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 - added man, mips and potr patches,
 - added man pages for jstar, jmacs, rjoe and jpico as *roff include to
   joe(1),
-- back to libncurses.
+- back to libncurses,
+- added "Requires: ncurses >= 4.2-12" for prevent installing joe
+  with proper version ncurses.
 
 * Thu Aug 27 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [2.8-14]
