@@ -100,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Feb 17 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.8-17]
 - simplification in %files,
-- added man, mips and potr patches,
+- added man, mips and port patches,
 - added man pages for jstar, jmacs, rjoe and jpico as *roff include to
   joe(1),
 - back to libncurses,
