@@ -1,14 +1,16 @@
 Summary:	Easy to use editor
 Summary(de):	einfach handzuhabender Editor
+Summary(es):	Editor fАcil de usar
 Summary(fr):	Иditeur facile Ю utiliser
 Summary(pl):	ёatwy w u©yciu edytor tekstowy
+Summary(pt_BR):	Editor fАcil de usar
 Summary(ru):	Простой в использовании текстовый редактор
 Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
 Version:	2.9.8pre1
 %define		tar_version	2.9.8-pre1
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{tar_version}.tgz
@@ -40,6 +42,12 @@ OberflДche. Eine gute Wahl fЭr Neueinsteiger, die einen Texteditor
 brauchen, benutzt er dieselben WordStar-Keybindings, die auch von
 Borlands Enwicklungsumgebung verwendet werden.
 
+%description -l es
+Joe es un editor amigable y fАcil de usar. Posee una buena interface y
+serМa la mejor opciСn para un principiante que necesite de un editor.
+Usa la misma combinaciСn de teclas del WordStar, que tambiИn son
+utilizadas por el ambiente de desarrollo de la Borland.
+
 %description -l fr
 Joe est un Иditeur de texte simple Ю utiliser. il Ю une interface
 agrИable et constitue un bon choix novice ayant besoin d'un Иditeur de
@@ -56,6 +64,12 @@ Borland'a.
 Joe - это дружественный, простой в использовании текстовый редактор. У
 него приятный интерфейс и такие же функции клавиш, как и в системах
 разработки программ фирмы Borland (так называемый стандарт WordStar).
+
+%description -l pt_BR
+Joe И um editor amigАvel e fАcil de usar. Possui uma boa interface e
+seria a melhor opГЦo para um novato precisando de um editor. Ele usa a
+mesma combinaГЦo de teclas do WordStar que tambИm sЦo utilizadas pelo
+ambiente de desenvolvimento da Borland.
 
 %description -l tr
 Joe, kЭГЭk ve kullanЩmЩ kolay bir metin dЭzenleyicisidir. Borland
