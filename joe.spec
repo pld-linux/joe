@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.8
-Release:	20
+Release:	23
 Copyright:	GPL
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
@@ -20,7 +20,10 @@ Patch6:		joe-mips.patch
 Patch7:		joe-port.patch
 Patch8:		joe-kbdfix.patch
 Patch9:		joe-locale.patch
-BuildRequires:	ncurses-devel
+Patch10:	joe-deadjoe.patch
+Patch11:	joe-security.patch
+Patch12:	joe-resize.patch
+BuildRequires:	ncurses-devel >= 5.0
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -67,6 +70,9 @@ edilen metin düzenleyicisidir.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p0
+%patch10 -p1
+%patch11 -p1
+%patch12 -p1
 
 %build
 make	WHEREJOE=%{_bindir} \
