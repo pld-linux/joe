@@ -104,7 +104,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Editors}
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -122,7 +122,7 @@ for a in "" hu pl ; do
 done
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Editors
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -133,8 +133,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc INFO LIST NEWS README TODO
 %dir %{_sysconfdir}
 %config %{_sysconfdir}/*
+
 %{_mandir}/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-%{_applnkdir}/Editors/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
