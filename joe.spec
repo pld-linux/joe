@@ -10,6 +10,8 @@ License:	GPL
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
 Source0:	ftp://ftp.std.com/src/editors/%{name}%{version}.tar.Z
+Source1:	joe.png
+Source2:	joe.desktop
 Patch0:		joe-config.patch
 Patch1:		joe-time.patch
 Patch2:		joe-axphack.patch
@@ -24,6 +26,7 @@ Patch10:	joe-deadjoe.patch
 Patch11:	joe-security.patch
 Patch12:	joe-resize.patch
 Patch13:	joe-segv.patch
+Icon:		joe.xpm
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -84,6 +87,8 @@ WHERERC=%{_sysconfdir}/joe
 	
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Editors,/usr/X11R6/share/pixmaps}
+
 make install \
 	WHEREJOE=$RPM_BUILD_ROOT%{_bindir} \
 	WHERERC=$RPM_BUILD_ROOT%{_sysconfdir}/joe \
@@ -93,6 +98,9 @@ echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jstar.1
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jmacs.1
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/rjoe.1
 echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/man1/jpico.1
+
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/pixmaps
+install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Editors
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
@@ -105,3 +113,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/joe
 %config %{_sysconfdir}/joe/*
 %{_mandir}/man1/*
+%{_applnkdir}/Editors/*
+/usr/X11R6/share/pixmaps/*
