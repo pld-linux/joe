@@ -69,13 +69,13 @@ edilen metin düzenleyicisidir.
 %patch9 -p0
 
 %build
-make	WHEREJOE=/usr/bin \
+make	WHEREJOE=%{_bindir} \
 	WHERERC=/etc/joe
 	
 %install
 rm -rf $RPM_BUILD_ROOT
 make install \
-	WHEREJOE=$RPM_BUILD_ROOT/usr/bin \
+	WHEREJOE=$RPM_BUILD_ROOT%{_bindir} \
 	WHERERC=$RPM_BUILD_ROOT/etc/joe \
 	WHEREMAN=$RPM_BUILD_ROOT%{_mandir}/man1
 
@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) %{_bindir}/*
 %dir /etc/joe
 %config /etc/joe/*
 %{_mandir}/man1/*
