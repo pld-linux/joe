@@ -14,6 +14,7 @@ Patch1:      joe2.8-time.patch
 Patch2:      joe2.8-axphack.patch
 Patch3:      joe2.8-make.patch
 Patch4:      joe-2.8-asis.patch
+Patch5:      joe-2.8.patch
 Buildroot:   /tmp/%{name}-%{version}-root
 
 %description
@@ -55,12 +56,13 @@ edilen metin düzenleyicisidir.
 
 %patch3 -p1 -b .make
 %patch4 -p1 -b .asis
+%patch5 -p1
 
 %build
 make	CFLAGS="$RPM_OPT_FLAGS" \
-	EXTRALIBS=-lslang \
+	EXTRALIBS=-lncurses \
 	WHEREJOE=/usr/bin \
-	WHERERC=/etc/joe
+	WHERERC=/etc/joe \
 	
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -81,8 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Aug 27 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [2.8.14]
-- added pl translation,
-- recompiled against slang 1.2.x.
+- added patch adopted from Debian sources,
+- added pl translation.
 
 * Mon Jul 20 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
 - added %attr macros in %filles (allow build joe from non-root account),
