@@ -9,7 +9,8 @@ Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
 Version:	2.9.8
-Release:	0.1
+Release:	1
+Epoch:		1
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
