@@ -10,7 +10,7 @@ Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
 Version:	2.9.8pre1
 %define		tar_version	2.9.8-pre1
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{tar_version}.tgz
@@ -21,6 +21,7 @@ Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-isalnum.patch
 Patch2:		%{name}-spaceblank.patch
 Patch3:		%{name}-asis.patch
+Patch4:		%{name}-dropsuid.patch
 Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
@@ -88,6 +89,7 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 %patch1 -p0
 %patch2 -p0
 %patch3 -p1
+%patch4 -p1
 
 %build
 rm -f missing
@@ -119,15 +121,13 @@ done
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Editors
 
-gzip -9nf INFO LIST NEWS README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%doc {INFO,LIST,NEWS,README,TODO}*
+%doc INFO LIST NEWS README TODO
 %dir %{_sysconfdir}
 %config %{_sysconfdir}/*
 %{_mandir}/man1/*
