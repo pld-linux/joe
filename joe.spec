@@ -13,7 +13,7 @@ Version:	2.9.8pre1
 Release:	6
 License:	GPL
 Group:		Applications/Editors
-Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{tar_version}.tgz
+Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{tar_version}.tgz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	%{name}-non-english-man-pages.tar.bz2
