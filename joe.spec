@@ -97,56 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
-* Sat Apr 24 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.8-20]
-- added joe-locale.patch (from rawhide),
-- recompiles on new rpm.
-
-* Thu Mar  4 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.8-19]
-- added joe-kbdfix.patch with fix End key handling.
-
-* Mon Feb 22 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.8-18]
-- removed man group from man pages.
-
-* Wed Feb 17 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [2.8-17]
-- simplification in %files,
-- added man, mips and potr patches,
-- added man pages for jstar, jmacs, rjoe and jpico as *roff include to
-  joe(1),
-- back to libncurses,
-- added "Requires: ncurses >= 4.2-12" for prevent installing joe
-  with proper version ncurses.
-
-* Thu Aug 27 1998 Wojtek 奸usarczyk <wojtek@shadow.eu.org>
-  [2.8-14]
-- added patch adopted from Debian sources,
-- added pl translation.
-
-* Mon Jul 20 1998 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-- added %attr macros in %filles (allow build joe from non-root account),
-- added -q %setup parameter,
-- config files moved to /etc,
-- joe is now linked with libslang.
-
-* Fri May 08 1998 Cristian Gafton <gafton@redhat.com>
-- enable -asis in the config files so international keyboards will be better
-  supported
-  
-* Fri May 01 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Fri May 01 1998 Cristian Gafton <gafton@redhat.com>
-- /usr/lib/joe/* are config files 
-
-* Thu Apr 09 1998 Cristian Gafton <gafton@redhat.com>
-- manhattan build 
-
-* Thu Dec 11 1997 Cristian Gafton <gafton@redhat.com>
-- fixed termcap problems for terms other than 80x25
-- added support for buildroot and BuildRoot
-
-* Mon Jul 21 1997 Erik Troan <ewt@redhat.com>
-- built against glibcc
+* Sat May 29 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
+  [1.8-20]
+- based on RH spec,
+- spec rewrited by PLD team,
+- pl translation Wojtek 奸usarczyk <wojtek@shadow.eu.org>.
