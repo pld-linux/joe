@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.9.6
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
