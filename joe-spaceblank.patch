@@ -1,0 +1,345 @@
+--- b.c.old	Tue Mar 19 20:39:33 2002
++++ b.c	Tue Mar 19 20:39:47 2002
+@@ -432,7 +432,7 @@
+ 	P *q = pdup(p);
+ 
+ 	p_goto_bol(q);
+-	while (isblank(brc(q)))
++	while (isblank_(brc(q)))
+ 		pgetc(q);
+ 	if (piseol(q)) {
+ 		prm(q);
+@@ -449,7 +449,7 @@
+ 	long col;
+ 
+ 	p_goto_bol(q);
+-	while (isblank(brc(q)))
++	while (isblank_(brc(q)))
+ 		pgetc(q);
+ 	col = q->col;
+ 	prm(q);
+--- macro.c.old	Tue Mar 19 20:40:55 2002
++++ macro.c	Tue Mar 19 20:41:02 2002
+@@ -129,7 +129,7 @@
+       macroloop:
+ 
+ 	/* Skip whitespace */
+-	while (isblank(buf[x]))
++	while (isblank_(buf[x]))
+ 		++x;
+ 
+ 	/* Do we have a string? */
+@@ -231,13 +231,13 @@
+ 	}
+ 
+ 	/* Skip whitespace */
+-	while (isblank(buf[x]))
++	while (isblank_(buf[x]))
+ 		++x;
+ 
+ 	/* Do we have a comma? */
+ 	if (buf[x] == ',') {
+ 		++x;
+-		while (isblank(buf[x]))
++		while (isblank_(buf[x]))
+ 			++x;
+ 		if (buf[x] && buf[x] != '\r' && buf[x] != '\n')
+ 			goto macroloop;
+--- rc.c.old	Tue Mar 19 20:29:05 2002
++++ rc.c	Tue Mar 19 20:39:16 2002
+@@ -304,7 +304,7 @@
+ 		if (arg) {
+ 			int y;
+ 
+-			for (y = 0; !isspace(arg[y]); ++y) ;
++			for (y = 0; !isspace_(arg[y]); ++y) ;
+ 			if (!arg[y])
+ 				arg[y] = 0;
+ 			if (options && y)
+@@ -638,7 +638,7 @@
+ 					if (!strcmp(buf + 1, "def")) {
+ 						int y;
+ 
+-						for (buf[x] = c; isblank(buf[x]); ++x) ;
++						for (buf[x] = c; isblank_(buf[x]); ++x) ;
+ 						for (y = x; !isspace_eof(buf[y]); ++y) ;
+ 						c = buf[y];
+ 						buf[y] = 0;
+@@ -646,7 +646,7 @@
+ 							int sta;
+ 							MACRO *m;
+ 
+-							if (isblank(c)
++							if (isblank_(c)
+ 							    && (m = mparse(NULL, buf + y + 1, &sta)))
+ 								addcmd(buf + x, m);
+ 							else {
+@@ -659,7 +659,7 @@
+ 						}
+ 					} else if (!strcmp(buf + 1, "inherit"))
+ 						if (context) {
+-							for (buf[x] = c; isblank(buf[x]); ++x) ;
++							for (buf[x] = c; isblank_(buf[x]); ++x) ;
+ 							for (c = x; !isspace_eof(buf[c]); ++c) ;
+ 							buf[c] = 0;
+ 							if (c != x)
+@@ -672,7 +672,7 @@
+ 							err = 1;
+ 							fprintf(stderr, "\n%s %d: No context selected for :inherit", name, line);
+ 					} else if (!strcmp(buf + 1, "include")) {
+-						for (buf[x] = c; isblank(buf[x]); ++x) ;
++						for (buf[x] = c; isblank_(buf[x]); ++x) ;
+ 						for (c = x; !isspace_eof(buf[c]); ++c) ;
+ 						buf[c] = 0;
+ 						if (c != x) {
+@@ -695,7 +695,7 @@
+ 						if (context) {
+ 							int y;
+ 
+-							for (buf[x] = c; isblank(buf[x]); ++x) ;
++							for (buf[x] = c; isblank_(buf[x]); ++x) ;
+ 							for (y = x; buf[y] != 0 && buf[y] != '\t' && buf[y] != '\n' && (buf[y] != ' ' || buf[y + 1]
+ 															!= ' '); ++y) ;
+ 							buf[y] = 0;
+--- uedit.c.old	Tue Mar 19 20:29:41 2002
++++ uedit.c	Tue Mar 19 20:39:01 2002
+@@ -99,8 +99,8 @@
+ {
+ 	if (pisbof(bw->cursor)) {
+ 		return -1;	/* cursor is at beginning of file */
+-	} else if (isspace(prgetc(bw->cursor))) {
+-		while ((!pisbof(bw->cursor)) && (isspace(prgetc(bw->cursor))))
++	} else if (isspace_(prgetc(bw->cursor))) {
++		while ((!pisbof(bw->cursor)) && (isspace_(prgetc(bw->cursor))))
+ 			/* do nothing */;	/* if cursor is on white-space char then find first non-white-space char */
+ 	}
+ 	if (pisbof(bw->cursor)) {
+@@ -109,7 +109,7 @@
+ 	pgetc(bw->cursor);
+ 
+ 	while (!pisbof(bw->cursor)) {
+-		if (isspace(prgetc(bw->cursor))) {	/* if previous character is white-space then beginning of word was found */
++		if (isspace_(prgetc(bw->cursor))) {	/* if previous character is white-space then beginning of word was found */
+ 			pgetc(bw->cursor);
+ 			break;
+ 		}
+@@ -127,8 +127,8 @@
+ {
+ 	if (piseof(bw->cursor)) {
+ 		return -1;	/* cursor is at end of file */
+-	} else if (isspace(pgetc(bw->cursor))) {
+-		while ((!piseof(bw->cursor)) && (isspace(pgetc(bw->cursor))))
++	} else if (isspace_(pgetc(bw->cursor))) {
++		while ((!piseof(bw->cursor)) && (isspace_(pgetc(bw->cursor))))
+ 			/* do nothing */;	/* if cursor is on white-space char then find first non-white-space char */
+ 	}
+ 	if (piseof(bw->cursor)) {
+@@ -137,7 +137,7 @@
+ 	prgetc(bw->cursor);
+ 
+ 	while (!piseof(bw->cursor)) {
+-		if (isspace(pgetc(bw->cursor))) {	/* if next character is white-space then end of word was found */
++		if (isspace_(pgetc(bw->cursor))) {	/* if next character is white-space then end of word was found */
+ 			prgetc(bw->cursor);
+ 			break;
+ 		}
+@@ -148,7 +148,7 @@
+ static P *pboi(P *p)
+ {
+ 	p_goto_bol(p);
+-	while (isblank(brc(p)))
++	while (isblank_(brc(p)))
+ 		pgetc(p);
+ 	return p;
+ }
+@@ -166,9 +166,9 @@
+ 	pboi(q);
+ 	if (q->byte == p->byte)
+ 		goto left;
+-	if (isblank(c = brc(p))) {
++	if (isblank_(c = brc(p))) {
+ 		pset(q, p);
+-		if (isblank(prgetc(q)))
++		if (isblank_(prgetc(q)))
+ 			goto no;
+ 		if (c == '\t')
+ 			goto right;
+@@ -660,8 +660,8 @@
+ 	if (isalnum_(c))
+ 		while (c = brc(p), isalnum_(c))
+ 			pgetc(p);
+-	else if (isspace(c))
+-		while (c = brc(p), isspace(c))
++	else if (isspace_(c))
++		while (c = brc(p), isspace_(c))
+ 			pgetc(p);
+ 	else
+ 		pgetc(p);
+@@ -689,8 +689,8 @@
+ 			/* do nothing */;
+ 		if (c != MAXINT)
+ 			pgetc(bw->cursor);
+-	} else if (isspace(c)) {
+-		while (c = prgetc(bw->cursor), isspace(c))
++	} else if (isspace_(c)) {
++		while (c = prgetc(bw->cursor), isspace_(c))
+ 			/* do nothing */;
+ 		if (c != MAXINT)
+ 			pgetc(bw->cursor);
+@@ -788,7 +788,7 @@
+ 			while (piscol(bw->cursor) < bw->o.lmargin)
+ 				binsc(bw->cursor, ' '), pgetc(bw->cursor);
+ 		binsc(bw->cursor, k), pgetc(bw->cursor);
+-		if (bw->o.wordwrap && piscol(bw->cursor) > bw->o.rmargin && !isblank(k))
++		if (bw->o.wordwrap && piscol(bw->cursor) > bw->o.rmargin && !isblank_(k))
+ 			wrapword(bw->cursor, (long) bw->o.lmargin, bw->o.french, NULL), simple = 0;
+ 		else if (bw->o.overtype && !piseol(bw->cursor)
+ 			 && k != '\t')
+@@ -1054,7 +1054,7 @@
+ 		binsc(bw->cursor, '\n'), pgetc(bw->cursor);
+ 		if (bw->o.autoindent) {
+ 			p_goto_bol(p);
+-			while (isspace(c = pgetc(p)) && c != 10)
++			while (isspace_(c = pgetc(p)) && c != 10)
+ 				binsc(bw->cursor, c), pgetc(bw->cursor);
+ 		}
+ 		prm(p);
+--- uformat.c.old	Tue Mar 19 20:34:20 2002
++++ uformat.c	Tue Mar 19 20:40:36 2002
+@@ -26,7 +26,7 @@
+ 	int c;
+ 
+ 	p_goto_eol(p);
+-	while (isblank(c = prgetc(p)))
++	while (isblank_(c = prgetc(p)))
+ 		/* do nothing */;
+ 	if (c == '\n') {
+ 		pgetc(p);
+@@ -38,7 +38,7 @@
+ 	endcol = piscol(p);
+ 
+ 	p_goto_bol(p);
+-	while (isblank(c = pgetc(p)))
++	while (isblank_(c = pgetc(p)))
+ 		/* do nothing */;
+ 	if (c == '\n') {
+ 		prgetc(p);
+@@ -129,7 +129,7 @@
+ 	while (cpara(brc(q)))
+ 		pgetc(q);
+ 	while (!pisbol(q))
+-		if (!isblank(prgetc(q))) {
++		if (!isblank_(prgetc(q))) {
+ 			pgetc(q);
+ 			break;
+ 		}
+@@ -285,7 +285,7 @@
+ 		p_goto_bol(r);
+ 		q = pdup(r);
+ 		while(cpara(c = brc(q))) {
+-			if(!isblank(c))
++			if(!isblank_(c))
+ 				f = 1;
+ 			pgetc(q);
+ 		}
+@@ -301,7 +301,7 @@
+ */
+ 
+ 	/* Get to beginning of word */
+-	while (!pisbol(p) && piscol(p) > indent && !isblank(prgetc(p)))
++	while (!pisbol(p) && piscol(p) > indent && !isblank_(prgetc(p)))
+ 		/* do nothing */;
+ 
+ 	/* If we found the beginning of a word... */
+@@ -310,7 +310,7 @@
+ 		   word */
+ 		q = pdup(p);
+ 		while (!pisbol(q))
+-			if (!isblank(c = prgetc(q))) {
++			if (!isblank_(c = prgetc(q))) {
+ 				pgetc(q);
+ 				if ((c == '.' || c == '?' || c == '!')
+ 				    && q->byte != p->byte && !french)
+@@ -428,7 +428,7 @@
+ 		}
+ 
+ 		/* Stop if we found white-space followed by end of line */
+-		if (isblank(c)) {
++		if (isblank_(c)) {
+ 			char *r = b;
+ 			int rlen = len;
+ 			int z;
+@@ -437,7 +437,7 @@
+ 				z = *r++;
+ 				if (z == '\n')
+ 					break;
+-				if (!isblank(z))
++				if (!isblank_(z))
+ 					goto ok;
+ 			}
+ 			++len;
+@@ -451,7 +451,7 @@
+ 		pgetc(p);
+ 
+ 		/* Do word wrap if we reach right margin */
+-		if (piscol(p) > bw->o.rmargin && !isblank(c)) {
++		if (piscol(p) > bw->o.rmargin && !isblank_(c)) {
+ 			wrapword(p, indent, bw->o.french, indents);
+ 			break;
+ 		}
+@@ -460,12 +460,12 @@
+ 	/* Do rest */
+ 
+ 	while (len > 0)
+-		if (isspace(*b) || *b == '\r') {
++		if (isspace_(*b) || *b == '\r') {
+ 			int f = 0;
+ 
+ 			/* Set f if there are two spaces after . ? or ! instead of one */
+ 			if ((b[-1] == '.' || b[-1] == '?' || b[-1] == '!')
+-			    && isspace(b[1]))
++			    && isspace_(b[1]))
+ 				f = 1;
+ 
+ 			/* Skip past the whitespace.  Skip over indentations */
+@@ -488,7 +488,7 @@
+ 				}
+ 			}
+ 
+-			if (len && isblank(*b)) {
++			if (len && isblank_(*b)) {
+ 				if (b - buf == curoff)
+ 					pset(bw->cursor, p);
+ 				++b, --len;
+--- utils.c.old	Tue Mar 19 20:34:41 2002
++++ utils.c	Tue Mar 19 20:42:43 2002
+@@ -28,7 +28,17 @@
+  */
+ int isspace_eof(int c)
+ {
+-	return(isspace(c) || (!c));
++	return(isspace_(c) || (!c));
++}
++
++int isspace_(int c)
++{
++	return(c >= 0 && c < 256 && isspace(c));
++}
++
++int isblank_(int c)
++{
++	return(c >= 0 && c < 256 && isblank(c));
+ }
+ 
+ /*
+--- utils.h.old	Tue Mar 19 20:40:04 2002
++++ utils.h	Tue Mar 19 20:40:08 2002
+@@ -38,7 +38,7 @@
+  *	even #including <ctype.h> without additional hackery doesn't import
+  *	the prototype, so we define it here unconditionaly
+  */
+-int isblank PARAMS((int c));
++int isblank_ PARAMS((int c));
+ 
+ /*
+  * Functions which return minimum/maximum of two numbers  
