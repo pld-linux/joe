@@ -1,0 +1,19 @@
+diff -u joe-2.9.8-pre1.orig/utag.c joe-2.9.8-pre1/utag.c
+--- joe-2.9.8-pre1.orig/utag.c	Mon Dec 10 17:48:56 2001
++++ joe-2.9.8-pre1/utag.c	Sat Mar 16 00:24:59 2002
+@@ -135,13 +135,13 @@
+ 		P *q = pdup(p);
+ 		int c;
+ 
+-		while (isalnum_(c = prgetc(p)))
++		while (isalnum_(c = prgetc(p)) && c != MAXINT)
+ 			/* do nothing */;
+ 		if (c != MAXINT) {
+ 			pgetc(p);
+ 		}
+ 		pset(q, p);
+-		while (isalnum_(c = pgetc(q)))
++		while (isalnum_(c = pgetc(q)) && c != MAXINT)
+ 			/* do nothing */;
+ 		if (c != MAXINT) {
+ 			prgetc(q);
