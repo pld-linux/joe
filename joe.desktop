@@ -1,11 +1,12 @@
 [Desktop Entry]
-Name=joe
+Name=Joe
 Comment=Easy to use editor
-Comment[de]=einfach handzuhabender Editor
-Comment[fr]=éditeur facile à utiliser
-Comment[pl]=£atwy w u¿yciu edytor tekstowy
+Comment[de]=Einfach handzuhabender Editor
+Comment[fr]=Ã‰diteur facile Ã  utiliser
+Comment[pl]=Åatwy w uÅ¼yciu edytor tekstowy
 Comment[tr]=Kolay kullanımlı metin düzenleyici
 Icon=joe.png
 Exec=joe
 Terminal=1
 Type=Application
+# vi: encoding=utf-8
