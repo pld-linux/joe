@@ -57,6 +57,7 @@ için en cok tavsiye edilen metin düzenleyicisidir.
 %prep
 %setup -q -a3 -n %{name}-%{tar_version}
 %patch0 -p0
+%patch1 -p1
 
 %build
 rm -f missing
