@@ -85,7 +85,7 @@ automake -a -c -f
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Editors}
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Editors}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
