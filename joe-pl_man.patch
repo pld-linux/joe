@@ -1,0 +1,29 @@
+diff -ur pl.old/man1/joe.1 pl/man1/joe.1
+--- pl.old/man1/joe.1	Fri Feb  9 15:52:36 2001
++++ pl/man1/joe.1	Thu Oct 25 00:33:19 2001
+@@ -83,14 +83,14 @@
+ .PP
+ Mo¿esz dostosowaæ uk³ad klawiatury, ekrany pomocy i wiele domy¶lnych
+ sposobów zachowywania siê edytora kopiuj±c plik inicjuj±cy JOE'go
+-(zwykle \fIusr/local/lib/joerc\fR) jako \fI.joerc\fR do swego katalogu
++(zwykle \fI/etc/joe/joerc\fR) jako \fI.joerc\fR do swego katalogu
+ domowego i zmieniaj±c go. Patrz sekcja \fBjoerc\fR poni¿ej.
+ .PP
+ Je¶li chcesz by JOE by³ u¿ywany jako twój domy¶lny edytor dla e-mail i News,
+ powiniene¶ ustawiæ zmienne ¶rodowiska \fBEDITOR\fR oraz \fBVISUAL\fR
+ w pliku inicjuj±cym swojej pow³oki (\fI.cshrc\fR lub \fI.profile\fR),
+ tak by wskazywa³y na JOE'go (zwykle znajduje siê on
+-w \fI/usr/local/bin/joe\fR).
++w \fI/usr/bin/joe\fR).
+ .PP
+ .\" There are a number of other obscure invocation parameters
+ Istnieje wiele innych nieoczywistych parametrów wywo³ania, jakie byæ mo¿e musz±
+@@ -790,7 +790,7 @@
+ .SH PLIK joerc
+ Opcje \fB^T\fR, ekrany pomocy i przypisania sekwencji klawiszy do poleceñ
+ edytora zdefiniowane s± w pliku inicjuj±cym JOE'go. Po zrobieniu kopii
+-tego pliku (który zwykle znajduje siê w \fI/usr/local/lib/joerc\fR) do katalogu
++tego pliku (który zwykle znajduje siê w \fI/etc/joe/joerc\fR) do katalogu
+ domowego, pod nazw± \fI$HOME/.joerc\fR, mo¿esz zmieniaæ te ustawienia wed³ug
+ w³asnych upodobañ. Sk³adnia pliku inicjuj±cego powinna byæ do¶æ oczywista,
+ poza tym s± w nim zawarte dalsze wskazówki.
