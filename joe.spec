@@ -1,7 +1,7 @@
 Summary:	Easy to use editor
-Summary(de):	einfach handzuhabender Editor
+Summary(de):	Einfach handzuhabender Editor
 Summary(es):	Editor fácil de usar
-Summary(fr):	éditeur facile à utiliser
+Summary(fr):	Éditeur facile à utiliser
 Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(pt_BR):	Editor fácil de usar
 Summary(ru):	ğÒÏÓÔÏÊ × ÉÓĞÏÌØÚÏ×ÁÎÉÉ ÔÅËÓÔÏ×ÙÊ ÒÅÄÁËÔÏÒ
@@ -50,7 +50,7 @@ Usa la misma combinación de teclas del WordStar, que también son
 utilizadas por el ambiente de desarrollo de la Borland.
 
 %description -l fr
-Joe est un éditeur de texte simple à utiliser. il à une interface
+Joe est un éditeur de texte simple à utiliser. Il à une interface
 agréable et constitue un bon choix novice ayant besoin d'un éditeur de
 texte. Il utilise les mêmes combinaisons de touches que WordStar, qui
 sont aussi utilisées par les environnements de développement Borland.
