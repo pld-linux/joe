@@ -15,6 +15,7 @@ Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{version}.tgz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile_fix.patch
+Patch1:		%{name}-2.9.6--format.diff
 Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	ncurses-devel >= 5.0
@@ -54,7 +55,8 @@ için en cok tavsiye edilen metin düzenleyicisidir.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 %configure
