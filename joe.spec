@@ -12,7 +12,7 @@ Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
 Version:	3.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
