@@ -6,7 +6,7 @@ Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.9.8pre1
 %define		tar_version	2.9.8-pre1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{tar_version}.tgz
@@ -14,7 +14,8 @@ Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-pl_man.patch
-Patch1:		%{name}-utag.diff
+Patch1:		%{name}-isalnum.patch
+Patch2:		%{name}-spaceblank.patch
 Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
@@ -57,7 +58,8 @@ için en cok tavsiye edilen metin düzenleyicisidir.
 %prep
 %setup -q -a3 -n %{name}-%{tar_version}
 %patch0 -p0
-%patch1 -p1
+%patch1 -p0
+%patch2 -p0
 
 %build
 rm -f missing
