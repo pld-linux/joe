@@ -1,0 +1,12 @@
+diff -Nur joe-2.9.8-pre1.org/ufile.c joe-2.9.8-pre1/ufile.c
+--- joe-2.9.8-pre1.org/ufile.c	Mon Dec 10 17:48:55 2001
++++ joe-2.9.8-pre1/ufile.c	Mon Sep 23 12:04:17 2002
+@@ -151,7 +151,7 @@
+ 	if (fstat(f, &sbuf) < 0) {
+ 		return -1;
+ 	}
+-	g = creat(to, sbuf.st_mode);
++	g = creat(to, sbuf.st_mode & ~(S_ISUID | S_ISGID));
+ 	if (g < 0) {
+ 		close(f);
+ 		return -1;
