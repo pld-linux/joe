@@ -24,7 +24,7 @@ Patch10:	joe-deadjoe.patch
 Patch11:	joe-security.patch
 Patch12:	joe-resize.patch
 BuildRequires:	ncurses-devel >= 5.0
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Joe is a friendly and easy to use editor.  It has a nice interface and would 
