@@ -65,7 +65,7 @@ autoconf
 automake -a -c
 %configure
 %{__make}
-	
+
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__install} -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Editors}
