@@ -1,0 +1,10 @@
+--- joe/b.c.deadjoe	Thu Sep  2 12:01:47 1999
++++ joe/b.c	Thu Sep  2 12:09:21 1999
+@@ -1991,6 +1991,7 @@
+  long tim=time(0);
+  B *b;
+  FILE *f=fopen("DEADJOE","a");
++ fchmod(fileno(f), 0600);
+  fprintf(f,"\n*** Modified files in JOE when it aborted on %s",ctime(&tim));
+  if(sig) fprintf(f,"*** JOE was aborted by signal %d\n",sig);
+  else fprintf(f,"*** JOE was aborted because the terminal closed\n");
