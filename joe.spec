@@ -8,9 +8,6 @@ Version:	2.9.7
 Release:	1
 License:	GPL
 Group:		Applications/Editors
-Group(de):	Applikationen/Editors
-Group(pl):	Aplikacje/Edytory
-Group(pt):	Aplicações/Editores
 Source0:	http://prdownloads.sourceforge.net/joe-editor/%{name}-%{version}.tgz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
