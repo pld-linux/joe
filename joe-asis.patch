@@ -1,0 +1,55 @@
+--- joe/jmacsrc.asis	Fri May  8 17:53:01 1998
++++ joe/jmacsrc	Fri May  8 17:53:06 1998
+@@ -23,7 +23,7 @@
+ 
+  -mid		Cursor is recentered when scrolling is necessary
+  -marking	Text between ^KB and cursor is highlighted
+- -asis		Characters 128 - 255 shown as-is
++-asis		Characters 128 - 255 shown as-is
+  -force		Force final newline when files are saved
+  -nobackups	If you don't want backup files to be created
+  -lightoff	Turn off highlighting after block copy or move
+--- joe/joerc.asis	Fri May  8 17:53:11 1998
++++ joe/joerc	Fri May  8 17:53:18 1998
+@@ -25,7 +25,7 @@
+ 
+  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
+ 
+- -asis		Characters 128 - 255 shown as-is
++-asis		Characters 128 - 255 shown as-is
+ 
+  -force		Force final newline when files are saved
+ 
+--- joe/rjoerc.asis	Fri May  8 17:53:56 1998
++++ joe/rjoerc	Fri May  8 17:54:00 1998
+@@ -25,7 +25,7 @@
+ 
+  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
+ 
+- -asis		Characters 128 - 255 shown as-is
++-asis		Characters 128 - 255 shown as-is
+ 
+  -force		Force final newline when files are saved
+ 
+--- joe/jpicorc.asis	Sat Jan 14 11:34:06 1995
++++ joe/jpicorc	Fri May  8 17:53:25 1998
+@@ -25,7 +25,7 @@
+ 
+ -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
+ 
+- -asis		Characters 128 - 255 shown as-is
++-asis		Characters 128 - 255 shown as-is
+ 
+ -force		Force final newline when files are saved
+ 
+--- joe/jstarrc.asis	Sun Jan  8 11:04:39 1995
++++ joe/jstarrc	Fri May  8 17:53:31 1998
+@@ -23,7 +23,7 @@
+ 
+  -mid		Cursor is recentered when scrolling is necessary
+  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
+- -asis		Characters 128 - 255 shown as-is
++-asis		Characters 128 - 255 shown as-is
+  -force		Force final newline when files are saved
+  -nobackups	If you don't want backup files to be created
+  -lightoff	Turn off highlighting after block copy or move
