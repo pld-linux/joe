@@ -1,0 +1,146 @@
+--- joe/path.c.security	Thu Oct  6 08:47:37 1994
++++ joe/path.c	Tue Sep  7 15:16:19 1999
+@@ -225,15 +225,17 @@
+  static int seq=0;
+  char *name;
+  int fd;
++ int namesize;
+  if(!where) where=getenv("TEMP");
+ #ifdef __MSDOS__
+  if(!where) where="";
+ #else
+  if(!where) where="/tmp";
+ #endif
+- name=(char *)malloc(zlen(where)+16);
++ namesize = zlen(where)+16;
++ name=(char *)malloc(namesize);
+  loop:
+- sprintf(name,"%s/J%d%d.tmp",where,seq= ++seq%1000,(unsigned)time(NULL)%1000);
++ snprintf(name,namesize,"%s/J%d%d.tmp",where,seq= ++seq%1000,(unsigned)time(NULL)%1000);
+  ossep(name);
+  if((fd=open(name,O_RDONLY))!= -1)
+   {
+--- joe/rc.c.security	Fri Jan 20 03:53:42 1995
++++ joe/rc.c	Tue Sep  7 15:16:19 1999
+@@ -18,6 +18,8 @@
+ #include "termcap.h"
+ #include "rc.h"
+ 
++#define OPT_BUF_SIZE 80
++
+ static struct context
+  {
+  struct context *next;
+@@ -485,7 +487,7 @@
+  {
+  BW *bw=m->parent->win->object;
+  int *xx;
+- char buf[80];
++ char buf[OPT_BUF_SIZE];
+  int *notify=m->parent->notify;
+  switch(glopts[x].type)
+   {
+@@ -508,7 +510,7 @@
+   break;
+ 
+   case 1:
+-  sprintf(buf,glopts[x].yes,*glopts[x].set);
++  snprintf(buf,OPT_BUF_SIZE,glopts[x].yes,*glopts[x].set);
+   xx=(int *)malloc(sizeof(int)); *xx=x;
+   m->parent->notify=0;
+   uabort(m,MAXINT);
+@@ -516,8 +518,8 @@
+   else return -1;
+ 
+   case 2:
+-  if(*(char **)glopts[x].set) sprintf(buf,glopts[x].yes,*(char **)glopts[x].set);
+-  else sprintf(buf,glopts[x].yes,"");
++  if(*(char **)glopts[x].set) snprintf(buf,OPT_BUF_SIZE,glopts[x].yes,*(char **)glopts[x].set);
++  else snprintf(buf,OPT_BUF_SIZE,glopts[x].yes,"");
+   xx=(int *)malloc(sizeof(int)); *xx=x;
+   m->parent->notify=0;
+   uabort(m,MAXINT);
+@@ -525,11 +527,11 @@
+   else return -1;
+ 
+   case 5:
+-  sprintf(buf,glopts[x].yes,*(int *)((char *)&bw->o+glopts[x].ofst));
++  snprintf(buf,OPT_BUF_SIZE,glopts[x].yes,*(int *)((char *)&bw->o+glopts[x].ofst));
+   goto in;
+   
+   case 7:
+-  sprintf(buf,glopts[x].yes,*(int *)((char *)&bw->o+glopts[x].ofst)+1);
++  snprintf(buf,OPT_BUF_SIZE,glopts[x].yes,*(int *)((char *)&bw->o+glopts[x].ofst)+1);
+   in: xx=(int *)malloc(sizeof(int)); *xx=x;
+   m->parent->notify=0;
+   uabort(m,MAXINT);
+--- joe/ufile.c.security	Fri Jan 13 12:13:16 1995
++++ joe/ufile.c	Tue Sep  7 15:17:56 1999
+@@ -51,6 +51,7 @@
+ #include "uerror.h"
+ #include "macro.h"
+ #include "ufile.h"
++#include "w.h"
+ 
+ extern int orphan;
+ char *backpath=0;			/* Place to store backup files */
+@@ -70,16 +71,16 @@
+ 
+  if(name)
+   if(saved)
+-   sprintf(msgbuf,"File %s saved",name);
++   snprintf(msgbuf,MSGBUFSIZE,"File %s saved",name);
+   else
+-   sprintf(msgbuf,"File %s not saved",name);
++   snprintf(msgbuf,MSGBUFSIZE,"File %s not saved",name);
+  else
+   if(bw->b->changed && bw->b->count==1)
+-   sprintf(msgbuf,"File %s not saved",s);
++   snprintf(msgbuf,MSGBUFSIZE,"File %s not saved",s);
+   else if(saved)
+-   sprintf(msgbuf,"File %s saved",s);
++   snprintf(msgbuf,MSGBUFSIZE,"File %s saved",s);
+   else
+-   sprintf(msgbuf,"File %s not changed so no update needed",s);
++   snprintf(msgbuf,MSGBUFSIZE,"File %s not changed so no update needed",s);
+  msgnw(bw,msgbuf);
+ 
+  if(!exmsg)
+@@ -191,9 +192,9 @@
+ #ifdef __MSDOS__
+ 
+   if(backpath)
+-   sprintf(name,"%s/%s",backpath,namepart(tmp,bw->b->name));
++   snprintf(name,sizeof(name),"%s/%s",backpath,namepart(tmp,bw->b->name));
+   else
+-   sprintf(name,"%s",bw->b->name);
++   snprintf(name,sizeof(name),"%s",bw->b->name);
+   
+   ossep(name);
+ 
+@@ -210,9 +211,9 @@
+ 
+   /* Create backup file name */
+   if(backpath)
+-   sprintf(name,"%s/%s~",backpath,namepart(tmp,bw->b->name));
++   snprintf(name,sizeof(name),"%s/%s~",backpath,namepart(tmp,bw->b->name));
+   else
+-   sprintf(name,"%s~",bw->b->name);
++   snprintf(name,sizeof(name),"%s~",bw->b->name);
+ 
+   /* Attempt to delete backup file first */
+   unlink(name);
+--- joe/w.h.security	Thu Oct  6 02:20:35 1994
++++ joe/w.h	Tue Sep  7 15:16:19 1999
+@@ -253,7 +253,10 @@
+ void msgnw();
+ void msgnwt();
+ 
+-extern char msgbuf[80];	/* Message composition buffer for msgnw/msgnwt */
++
++#define MSGBUFSIZE 80
++
++extern char msgbuf[MSGBUFSIZE];	/* Message composition buffer for msgnw/msgnwt */
+ 
+ void msgout();		/* Output msgnw/msgnwt messages */
+ 
