@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.8
-Release:	19
+Release:	20
 Copyright:	GPL
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
@@ -19,7 +19,8 @@ Patch5:		joe-man.patch
 Patch6:		joe-mips.patch
 Patch7:		joe-port.patch
 Patch8:		joe-kbdfix.patch
-Requires:	ncurses >= 4.2-12
+Patch9:		joe-locale.patch
+BuildPrereq:	ncurses-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -65,6 +66,7 @@ edilen metin düzenleyicisidir.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p0
 
 %build
 make	WHEREJOE=/usr/bin \
@@ -95,6 +97,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/man/man1/*
 
 %changelog
+* Sat Apr 24 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.8-20]
+- added joe-locale.patch (from rawhide),
+- recompiles on new rpm.
+
 * Thu Mar  4 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.8-19]
 - added joe-kbdfix.patch with fix End key handling.
