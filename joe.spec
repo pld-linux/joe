@@ -5,7 +5,7 @@ Summary(pl):	£atwy w u¿yciu edytor tekstowy
 Summary(tr):	Kolay kullanýmlý metin düzenleyici
 Name:		joe
 Version:	2.8
-Release:	17
+Release:	18
 Copyright:	GPL
 Group:		Applications/Editors
 Group(pl):	Aplikacje/Edytory
@@ -90,9 +90,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/*
 %dir /etc/joe
 %config /etc/joe/*
-%attr(644,root, man) /usr/man/man1/*
+/usr/man/man1/*
 
 %changelog
+* Mon Feb 22 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.8-18]
+- removed man group from man pages.
+
 * Wed Feb 17 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.8-17]
 - simplification in %files,
