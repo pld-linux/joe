@@ -8,12 +8,11 @@ Summary(ru):	Простой в использовании текстовый редактор
 Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
-Version:	2.9.8pre1
-%define		tar_version	2.9.8-pre1
-Release:	6
+Version:	2.9.8
+Release:	0.1
 License:	GPL
 Group:		Applications/Editors
-Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{tar_version}.tgz
+Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	%{name}-non-english-man-pages.tar.bz2
@@ -84,12 +83,12 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 розробки програм ф╕рми Borland (так званий стандарт WordStar).
 
 %prep
-%setup -q -a3 -n %{name}-%{tar_version}
+%setup -q -a3 -n %{name}-%{version}
 %patch0 -p0
 %patch1 -p0
-%patch2 -p0
+#%patch2 -p0
 %patch3 -p1
-%patch4 -p1
+#%patch4 -p1
 
 %build
 rm -f missing
