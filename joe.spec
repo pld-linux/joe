@@ -92,8 +92,8 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
