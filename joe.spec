@@ -133,7 +133,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc INFO LIST NEWS README TODO
 %dir %{_sysconfdir}
 %config %{_sysconfdir}/*
-
 %{_mandir}/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
