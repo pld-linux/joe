@@ -1,13 +1,10 @@
 Summary:     Easy to use editor
-Summary(de): einfach handzuhabender Editor
-Summary(fr): éditeur facile à utiliser
-Summary(pl): £atwy w u¿yciu edytor tekstowy
-Summary(tr): Kolay kullanýmlý metin düzenleyici
 Name:        joe
 Version:     2.8
 Release:     14
 Copyright:   GPL
 Group:       Applications/Editors
+Group(pl):   Aplikacje/Edytory
 Source:      ftp://ftp.std.com/src/editors/%{name}%{version}.tar.Z
 Patch0:      joe2.8-config.patch
 Patch1:      joe2.8-time.patch
@@ -15,7 +12,11 @@ Patch2:      joe2.8-axphack.patch
 Patch3:      joe2.8-make.patch
 Patch4:      joe-2.8-asis.patch
 Patch5:      joe-2.8.patch
-Buildroot:   /tmp/%{name}-%{version}-root
+Buildroot:   /tmp/buildroot-%{name}-%{version}
+Summary(de): einfach handzuhabender Editor
+Summary(fr): éditeur facile à utiliser
+Summary(pl): £atwy w u¿yciu edytor tekstowy
+Summary(tr): Kolay kullanýmlý metin düzenleyici
 
 %description
 Joe is a friendly and easy to use editor.  It has a nice interface and would 
@@ -71,11 +72,13 @@ make install \
 	WHERERC=$RPM_BUILD_ROOT/etc/joe \
 	WHEREMAN=$RPM_BUILD_ROOT/usr/man/man1
 
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/*
+
 %files
 %attr(755, root, root) /usr/bin/*
 %attr(755, root, root) %dir /etc/joe
 %attr(644, root, root) %config /etc/joe/*
-%attr(644, root,  man) /usr/man/man1/joe.1
+%attr(644, root,  man) /usr/man/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
