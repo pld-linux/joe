@@ -1,6 +1,7 @@
---- joe/jmacsrc.asis	Fri May  8 17:53:01 1998
-+++ joe/jmacsrc	Fri May  8 17:53:06 1998
-@@ -23,7 +23,7 @@
+diff -u joe-2.9.8-pre1.orig/jmacsrc.in joe-2.9.8-pre1/jmacsrc.in
+--- joe-2.9.8-pre1.orig/jmacsrc.in	Mon Oct 29 15:39:51 2001
++++ joe-2.9.8-pre1/jmacsrc.in	Thu Mar 21 19:51:35 2002
+@@ -22,7 +22,7 @@
  
   -mid		Cursor is recentered when scrolling is necessary
   -marking	Text between ^KB and cursor is highlighted
@@ -9,9 +10,10 @@
   -force		Force final newline when files are saved
   -nobackups	If you don't want backup files to be created
   -lightoff	Turn off highlighting after block copy or move
---- joe/joerc.asis	Fri May  8 17:53:11 1998
-+++ joe/joerc	Fri May  8 17:53:18 1998
-@@ -25,7 +25,7 @@
+diff -u joe-2.9.8-pre1.orig/joerc.in joe-2.9.8-pre1/joerc.in
+--- joe-2.9.8-pre1.orig/joerc.in	Mon Dec 10 17:48:54 2001
++++ joe-2.9.8-pre1/joerc.in	Thu Mar 21 19:50:39 2002
+@@ -24,7 +24,7 @@
  
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
  
@@ -20,20 +22,10 @@
  
   -force		Force final newline when files are saved
  
---- joe/rjoerc.asis	Fri May  8 17:53:56 1998
-+++ joe/rjoerc	Fri May  8 17:54:00 1998
-@@ -25,7 +25,7 @@
- 
-  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
- 
-- -asis		Characters 128 - 255 shown as-is
-+-asis		Characters 128 - 255 shown as-is
- 
-  -force		Force final newline when files are saved
- 
---- joe/jpicorc.asis	Sat Jan 14 11:34:06 1995
-+++ joe/jpicorc	Fri May  8 17:53:25 1998
-@@ -25,7 +25,7 @@
+diff -u joe-2.9.8-pre1.orig/jpicorc.in joe-2.9.8-pre1/jpicorc.in
+--- joe-2.9.8-pre1.orig/jpicorc.in	Mon Oct 29 15:39:51 2001
++++ joe-2.9.8-pre1/jpicorc.in	Thu Mar 21 19:51:29 2002
+@@ -24,7 +24,7 @@
  
  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
  
@@ -42,9 +34,10 @@
  
  -force		Force final newline when files are saved
  
---- joe/jstarrc.asis	Sun Jan  8 11:04:39 1995
-+++ joe/jstarrc	Fri May  8 17:53:31 1998
-@@ -23,7 +23,7 @@
+diff -u joe-2.9.8-pre1.orig/jstarrc.in joe-2.9.8-pre1/jstarrc.in
+--- joe-2.9.8-pre1.orig/jstarrc.in	Mon Oct 29 15:39:51 2001
++++ joe-2.9.8-pre1/jstarrc.in	Thu Mar 21 19:50:34 2002
+@@ -22,7 +22,7 @@
  
   -mid		Cursor is recentered when scrolling is necessary
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
@@ -53,3 +46,15 @@
   -force		Force final newline when files are saved
   -nobackups	If you don't want backup files to be created
   -lightoff	Turn off highlighting after block copy or move
+diff -u joe-2.9.8-pre1.orig/rjoerc.in joe-2.9.8-pre1/rjoerc.in
+--- joe-2.9.8-pre1.orig/rjoerc.in	Mon Oct 29 15:39:52 2001
++++ joe-2.9.8-pre1/rjoerc.in	Thu Mar 21 19:50:30 2002
+@@ -24,7 +24,7 @@
+ 
+  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
+ 
+- -asis		Characters 128 - 255 shown as-is
++-asis		Characters 128 - 255 shown as-is
+ 
+  -force		Force final newline when files are saved
+ 
