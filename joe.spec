@@ -1,3 +1,6 @@
+# TODO:
+#  - port / fix -spaceblank patch
+#
 Summary:	Easy to use editor
 Summary(de):	Einfach handzuhabender Editor
 Summary(es):	Editor fАcil de usar
@@ -23,7 +26,6 @@ Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-isalnum.patch
 Patch2:		%{name}-spaceblank.patch
 Patch3:		%{name}-asis.patch
-Patch4:		%{name}-dropsuid.patch
 Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
@@ -91,7 +93,6 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 %patch1 -p0
 #%patch2 -p0
 %patch3 -p1
-#%patch4 -p1
 
 %build
 rm -f missing
