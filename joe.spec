@@ -14,9 +14,11 @@ Epoch:		1
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
+# Source0-md5:	c7c66cc641f53ba820f47a73c5b2377f
 Source1:	%{name}.png
 Source2:	%{name}.desktop
-Source3:	%{name}-non-english-man-pages.tar.bz2
+Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+# Source3-md5:	47d050baa065ec9095d9d99217749abb
 Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-isalnum.patch
 Patch2:		%{name}-spaceblank.patch
