@@ -130,7 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%doc INFO LIST NEWS README TODO
+%doc LIST NEWS README TODO
 %dir %{_sysconfdir}
 %config %{_sysconfdir}/*
 %{_mandir}/man1/*
