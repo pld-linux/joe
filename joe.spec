@@ -11,13 +11,13 @@ Summary(ru):	Простой в использовании текстовый редактор
 Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
-Version:	3.1
+Version:	3.3
 Release:	2
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
-# Source0-md5:	2a6ef018870fca9b7df85401994fb0e0
+# Source0-md5:	02221716679c039c5da00c275d61dbf4
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
