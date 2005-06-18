@@ -1,15 +1,15 @@
 diff -u joe-2.9.8-pre1.orig/jmacsrc.in joe-2.9.8-pre1/jmacsrc.in
---- joe-2.9.8-pre1.orig/jmacsrc.in	Mon Oct 29 15:39:51 2001
-+++ joe-2.9.8-pre1/jmacsrc.in	Thu Mar 21 19:51:35 2002
-@@ -22,7 +22,7 @@
- 
-  -mid		Cursor is recentered when scrolling is necessary
-  -marking	Text between ^KB and cursor is highlighted
+--- joe-2.9.8-pre1/jmacsrc.in.orig	2005-05-03 19:32:26.000000000 +0200
++++ joe-2.9.8-pre1/jmacsrc.in	2005-06-18 20:21:12.000000000 +0200
+@@ -53,7 +53,7 @@
+ -mid		Cursor is recentered when scrolling is necessary
+ -marking	Text between ^KB and cursor is highlighted
+ -lightoff	Turn off highlighting after block copy or move
 - -asis		Characters 128 - 255 shown as-is
 +-asis		Characters 128 - 255 shown as-is
   -force		Force final newline when files are saved
-  -nobackups	If you don't want backup files to be created
-  -lightoff	Turn off highlighting after block copy or move
+  -nolocks	If you don't want file locks to be used
+  -nomodcheck	Disable periodic checking of disk file newer than buffer
 diff -u joe-2.9.8-pre1.orig/joerc.in joe-2.9.8-pre1/joerc.in
 --- joe-2.9.8-pre1.orig/joerc.in	Mon Dec 10 17:48:54 2001
 +++ joe-2.9.8-pre1/joerc.in	Thu Mar 21 19:50:39 2002
