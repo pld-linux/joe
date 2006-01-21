@@ -26,7 +26,6 @@ Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-isalnum.patch
 Patch2:		%{name}-spaceblank.patch
 Patch3:		%{name}-asis.patch
-Icon:		joe.xpm
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
 BuildRequires:	automake
