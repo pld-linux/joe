@@ -1,0 +1,2 @@
+- Fixed bug recently posted to bugtraq concering creation of DEADJOE files
+  w/o checking any permisions.
