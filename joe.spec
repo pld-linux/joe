@@ -12,7 +12,7 @@ Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
 Version:	3.3
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
@@ -98,7 +98,8 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--sysconfdir=/etc
 %{__make}
 
 %install
