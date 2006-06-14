@@ -11,13 +11,13 @@ Summary(ru):	Простой в использовании текстовый редактор
 Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
 Summary(uk):	Простий у використанн╕ текстовий редактор
 Name:		joe
-Version:	3.3
-Release:	3
+Version:	3.4
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
-# Source0-md5:	02221716679c039c5da00c275d61dbf4
+# Source0-md5:	068d21205a12c6d5bbb02c55cda342ee
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
@@ -25,7 +25,7 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-isalnum.patch
 Patch2:		%{name}-spaceblank.patch
-Patch3:		%{name}-asis.patch
+#Patch3:		%{name}-asis.patch
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -91,7 +91,7 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 %patch0 -p0
 #%patch1 -p0
 #%patch2 -p0
-%patch3 -p1
+#%patch3 -p1
 
 %build
 rm -f missing
@@ -113,6 +113,9 @@ for a in hu pl ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$a/man1
 	install $a/man1/joe.1 $RPM_BUILD_ROOT%{_mandir}/$a/man1/
 done
+
+install -d $RPM_BUILD_ROOT%{_mandir}/ru/man1
+install man/ru/joe.1 $RPM_BUILD_ROOT%{_mandir}/ru/man1/
 
 for a in "" hu pl ; do
 	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jstar.1
@@ -136,5 +139,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
+%lang(ru) %{_mandir}/ru/man1/*
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
