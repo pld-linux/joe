@@ -1,6 +1,5 @@
-diff -u joe-2.9.8-pre1.orig/jmacsrc.in joe-2.9.8-pre1/jmacsrc.in
---- joe-2.9.8-pre1/jmacsrc.in.orig	2005-05-03 19:32:26.000000000 +0200
-+++ joe-2.9.8-pre1/jmacsrc.in	2005-06-18 20:21:12.000000000 +0200
+--- joe-3.4/rc/jmacsrc.in.orig	2005-05-03 19:32:26.000000000 +0200
++++ joe-3.4/rc/jmacsrc.in	2005-06-18 20:21:12.000000000 +0200
 @@ -53,7 +53,7 @@
  -mid		Cursor is recentered when scrolling is necessary
  -marking	Text between ^KB and cursor is highlighted
@@ -10,9 +9,8 @@ diff -u joe-2.9.8-pre1.orig/jmacsrc.in joe-2.9.8-pre1/jmacsrc.in
   -force		Force final newline when files are saved
   -nolocks	If you don't want file locks to be used
   -nomodcheck	Disable periodic checking of disk file newer than buffer
-diff -u joe-2.9.8-pre1.orig/joerc.in joe-2.9.8-pre1/joerc.in
---- joe-2.9.8-pre1.orig/joerc.in	Mon Dec 10 17:48:54 2001
-+++ joe-2.9.8-pre1/joerc.in	Thu Mar 21 19:50:39 2002
+--- joe-3.4.orig/rc/joerc.in	Mon Dec 10 17:48:54 2001
++++ joe-3.4/rc/joerc.in	Thu Mar 21 19:50:39 2002
 @@ -24,7 +24,7 @@
  
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
@@ -22,9 +20,8 @@ diff -u joe-2.9.8-pre1.orig/joerc.in joe-2.9.8-pre1/joerc.in
  
   -force		Force final newline when files are saved
  
-diff -u joe-2.9.8-pre1.orig/jpicorc.in joe-2.9.8-pre1/jpicorc.in
---- joe-2.9.8-pre1.orig/jpicorc.in	Mon Oct 29 15:39:51 2001
-+++ joe-2.9.8-pre1/jpicorc.in	Thu Mar 21 19:51:29 2002
+--- joe-3.4.orig/rc/jpicorc.in	Mon Oct 29 15:39:51 2001
++++ joe-3.4/rc/jpicorc.in	Thu Mar 21 19:51:29 2002
 @@ -24,7 +24,7 @@
  
  -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
@@ -34,9 +31,8 @@ diff -u joe-2.9.8-pre1.orig/jpicorc.in joe-2.9.8-pre1/jpicorc.in
  
  -force		Force final newline when files are saved
  
-diff -u joe-2.9.8-pre1.orig/jstarrc.in joe-2.9.8-pre1/jstarrc.in
---- joe-2.9.8-pre1.orig/jstarrc.in	Mon Oct 29 15:39:51 2001
-+++ joe-2.9.8-pre1/jstarrc.in	Thu Mar 21 19:50:34 2002
+--- joe-3.4.orig/rc/jstarrc.in	Mon Oct 29 15:39:51 2001
++++ joe-3.4/rc/jstarrc.in	Thu Mar 21 19:50:34 2002
 @@ -22,7 +22,7 @@
  
   -mid		Cursor is recentered when scrolling is necessary
@@ -46,9 +42,8 @@ diff -u joe-2.9.8-pre1.orig/jstarrc.in joe-2.9.8-pre1/jstarrc.in
   -force		Force final newline when files are saved
   -nobackups	If you don't want backup files to be created
   -lightoff	Turn off highlighting after block copy or move
-diff -u joe-2.9.8-pre1.orig/rjoerc.in joe-2.9.8-pre1/rjoerc.in
---- joe-2.9.8-pre1.orig/rjoerc.in	Mon Oct 29 15:39:52 2001
-+++ joe-2.9.8-pre1/rjoerc.in	Thu Mar 21 19:50:30 2002
+--- joe-3.4.orig/rc/rjoerc.in	Mon Oct 29 15:39:52 2001
++++ joe-3.4/rc/rjoerc.in	Thu Mar 21 19:50:30 2002
 @@ -24,7 +24,7 @@
  
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
