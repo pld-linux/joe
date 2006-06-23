@@ -23,9 +23,8 @@ Source2:	%{name}.desktop
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5:	47d050baa065ec9095d9d99217749abb
 Patch0:		%{name}-pl_man.patch
-Patch1:		%{name}-isalnum.patch
-Patch2:		%{name}-spaceblank.patch
-#Patch3:		%{name}-asis.patch
+Patch1:		%{name}-spaceblank.patch
+Patch2:		%{name}-asis.patch
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -90,11 +89,9 @@ Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
 %setup -q -a3
 %patch0 -p0
 #%patch1 -p0
-#%patch2 -p0
-#%patch3 -p1
+%patch2 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -111,13 +108,13 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 for a in hu pl ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$a/man1
-	install $a/man1/joe.1 $RPM_BUILD_ROOT%{_mandir}/$a/man1/
+	install $a/man1/joe.1 $RPM_BUILD_ROOT%{_mandir}/$a/man1
 done
 
 install -d $RPM_BUILD_ROOT%{_mandir}/ru/man1
-install man/ru/joe.1 $RPM_BUILD_ROOT%{_mandir}/ru/man1/
+install man/ru/joe.1 $RPM_BUILD_ROOT%{_mandir}/ru/man1
 
-for a in "" hu pl ; do
+for a in "" hu pl ru ; do
 	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jstar.1
 	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jmacs.1
 	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/rjoe.1
@@ -132,10 +129,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
 %doc LIST NEWS README TODO
+%attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}
-%config %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %{_mandir}/man1/*
 %lang(hu) %{_mandir}/hu/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
