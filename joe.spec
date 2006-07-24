@@ -42,7 +42,7 @@ enbironment.
 %description -l de
 Joe ist ein bedienerfreundlicher, einfacher Editor mit attraktiver
 Oberfläche. Eine gute Wahl für Neueinsteiger, die einen Texteditor
-brauchen, benutzt er dieselben WordStar-Keybindings, die auch von
+brauchen, er benutzt dieselben WordStar-Keybindings, die auch von
 Borlands Enwicklungsumgebung verwendet werden.
 
 %description -l es
