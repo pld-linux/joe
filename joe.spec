@@ -2,14 +2,14 @@
 #  - port / fix -spaceblank patch
 #
 Summary:	Easy to use editor
-Summary(de):	Einfach handzuhabender Editor
-Summary(es):	Editor fАcil de usar
-Summary(fr):	иditeur facile Ю utiliser
-Summary(pl):	ёatwy w u©yciu edytor tekstowy
-Summary(pt_BR):	Editor fАcil de usar
-Summary(ru):	Простой в использовании текстовый редактор
-Summary(tr):	Kolay kullanЩmlЩ metin dЭzenleyici
-Summary(uk):	Простий у використанн╕ текстовий редактор
+Summary(de.UTF-8):   Einfach handzuhabender Editor
+Summary(es.UTF-8):   Editor fц║cil de usar
+Summary(fr.UTF-8):   ц┴diteur facile ц═ utiliser
+Summary(pl.UTF-8):   е│atwy w uе╪yciu edytor tekstowy
+Summary(pt_BR.UTF-8):   Editor fц║cil de usar
+Summary(ru.UTF-8):   п÷я─п╬я│я┌п╬п╧ п╡ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╦ я┌п╣п╨я│я┌п╬п╡я▀п╧ я─п╣п╢п╟п╨я┌п╬я─
+Summary(tr.UTF-8):   Kolay kullanд╠mlд╠ metin dц╪zenleyici
+Summary(uk.UTF-8):   п÷я─п╬я│я┌п╦п╧ я┐ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я√ я┌п╣п╨я│я┌п╬п╡п╦п╧ я─п╣п╢п╟п╨я┌п╬я─
 Name:		joe
 Version:	3.5
 Release:	1
@@ -39,51 +39,51 @@ would be a good choice for a novice needing a text editor. It uses the
 same WordStar keybindings which are also used by Borland's development
 enbironment.
 
-%description -l de
+%description -l de.UTF-8
 Joe ist ein bedienerfreundlicher, einfacher Editor mit attraktiver
-OberflДche. Eine gute Wahl fЭr Neueinsteiger, die einen Texteditor
+Oberflц╓che. Eine gute Wahl fц╪r Neueinsteiger, die einen Texteditor
 brauchen, er benutzt dieselben WordStar-Keybindings, die auch von
 Borlands Enwicklungsumgebung verwendet werden.
 
-%description -l es
-Joe es un editor amigable y fАcil de usar. Posee una buena interface y
-serМa la mejor opciСn para un principiante que necesite de un editor.
-Usa la misma combinaciСn de teclas del WordStar, que tambiИn son
+%description -l es.UTF-8
+Joe es un editor amigable y fц║cil de usar. Posee una buena interface y
+serц╜a la mejor opciцЁn para un principiante que necesite de un editor.
+Usa la misma combinaciцЁn de teclas del WordStar, que tambiц╘n son
 utilizadas por el ambiente de desarrollo de la Borland.
 
-%description -l fr
-Joe est un Иditeur de texte simple Ю utiliser. Il Ю une interface
-agrИable et constitue un bon choix novice ayant besoin d'un Иditeur de
-texte. Il utilise les mЙmes combinaisons de touches que WordStar, qui
-sont aussi utilisИes par les environnements de dИveloppement Borland.
+%description -l fr.UTF-8
+Joe est un ц╘diteur de texte simple ц═ utiliser. Il ц═ une interface
+agrц╘able et constitue un bon choix novice ayant besoin d'un ц╘diteur de
+texte. Il utilise les mц╙mes combinaisons de touches que WordStar, qui
+sont aussi utilisц╘es par les environnements de dц╘veloppement Borland.
 
-%description -l pl
-Joe jest Ёatwym i przyjemnym w u©yciu edytorem, ma Ёadny interfejs i
-mo©e byФ dobrym wyborem dla pocz╠tkuj╠cych u©ytkownikСw Linuksa. Joe
-u©ywa tej samej kombinacji klawiszy co WordStar i oprogramowanie
+%description -l pl.UTF-8
+Joe jest е┌atwym i przyjemnym w uе╪yciu edytorem, ma е┌adny interfejs i
+moе╪e byд┤ dobrym wyborem dla poczд┘tkujд┘cych uе╪ytkownikцЁw Linuksa. Joe
+uе╪ywa tej samej kombinacji klawiszy co WordStar i oprogramowanie
 Borland'a.
 
-%description -l ru
-Joe - это дружественный, простой в использовании текстовый редактор. У
-него приятный интерфейс и такие же функции клавиш, как и в системах
-разработки программ фирмы Borland (так называемый стандарт WordStar).
+%description -l ru.UTF-8
+Joe - я█я┌п╬ п╢я─я┐п╤п╣я│я┌п╡п╣п╫п╫я▀п╧, п©я─п╬я│я┌п╬п╧ п╡ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╦ я┌п╣п╨я│я┌п╬п╡я▀п╧ я─п╣п╢п╟п╨я┌п╬я─. пё
+п╫п╣пЁп╬ п©я─п╦я▐я┌п╫я▀п╧ п╦п╫я┌п╣я─я└п╣п╧я│ п╦ я┌п╟п╨п╦п╣ п╤п╣ я└я┐п╫п╨я├п╦п╦ п╨п╩п╟п╡п╦я┬, п╨п╟п╨ п╦ п╡ я│п╦я│я┌п╣п╪п╟я┘
+я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я└п╦я─п╪я▀ Borland (я┌п╟п╨ п╫п╟п╥я▀п╡п╟п╣п╪я▀п╧ я│я┌п╟п╫п╢п╟я─я┌ WordStar).
 
-%description -l pt_BR
-Joe И um editor amigАvel e fАcil de usar. Possui uma boa interface e
-seria a melhor opГЦo para um novato precisando de um editor. Ele usa a
-mesma combinaГЦo de teclas do WordStar que tambИm sЦo utilizadas pelo
+%description -l pt_BR.UTF-8
+Joe ц╘ um editor amigц║vel e fц║cil de usar. Possui uma boa interface e
+seria a melhor opц╖цёo para um novato precisando de um editor. Ele usa a
+mesma combinaц╖цёo de teclas do WordStar que tambц╘m sцёo utilizadas pelo
 ambiente de desenvolvimento da Borland.
 
-%description -l tr
-Joe, kЭГЭk ve kullanЩmЩ kolay bir metin dЭzenleyicisidir. Borland
-firmasЩnЩn geliЧtirme ortamЩna alЩЧkЩn olanlar aynЩ kЩsayol tuЧlarЩnЩ
-kullanmaktan memnun olacaklardЩr. BasitliПi nedeni ile baЧlayanlar
-iГin en cok tavsiye edilen metin dЭzenleyicisidir.
+%description -l tr.UTF-8
+Joe, kц╪ц╖ц╪k ve kullanд╠mд╠ kolay bir metin dц╪zenleyicisidir. Borland
+firmasд╠nд╠n geliе÷tirme ortamд╠na alд╠е÷kд╠n olanlar aynд╠ kд╠sayol tuе÷larд╠nд╠
+kullanmaktan memnun olacaklardд╠r. Basitliд÷i nedeni ile baе÷layanlar
+iц╖in en cok tavsiye edilen metin dц╪zenleyicisidir.
 
-%description -l uk
-Joe - це дружн╕й, простий у використанн╕ текстовий редактор. В╕н ма╓
-при╓мний ╕нтерфейс ╕ так╕ ж сам╕ функц╕╖ клав╕ш, як ╕ в системах
-розробки програм ф╕рми Borland (так званий стандарт WordStar).
+%description -l uk.UTF-8
+Joe - я├п╣ п╢я─я┐п╤п╫я√п╧, п©я─п╬я│я┌п╦п╧ я┐ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я√ я┌п╣п╨я│я┌п╬п╡п╦п╧ я─п╣п╢п╟п╨я┌п╬я─. п▓я√п╫ п╪п╟я■
+п©я─п╦я■п╪п╫п╦п╧ я√п╫я┌п╣я─я└п╣п╧я│ я√ я┌п╟п╨я√ п╤ я│п╟п╪я√ я└я┐п╫п╨я├я√я≈ п╨п╩п╟п╡я√я┬, я▐п╨ я√ п╡ я│п╦я│я┌п╣п╪п╟я┘
+я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ я└я√я─п╪п╦ Borland (я┌п╟п╨ п╥п╡п╟п╫п╦п╧ я│я┌п╟п╫п╢п╟я─я┌ WordStar).
 
 %prep
 %setup -q -a3
