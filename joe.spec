@@ -2,14 +2,14 @@
 #  - port / fix -spaceblank patch
 #
 Summary:	Easy to use editor
-Summary(de.UTF-8):   Einfach handzuhabender Editor
-Summary(es.UTF-8):   Editor fácil de usar
-Summary(fr.UTF-8):   Éditeur facile à utiliser
-Summary(pl.UTF-8):   Łatwy w użyciu edytor tekstowy
-Summary(pt_BR.UTF-8):   Editor fácil de usar
-Summary(ru.UTF-8):   Простой в использовании текстовый редактор
-Summary(tr.UTF-8):   Kolay kullanımlı metin düzenleyici
-Summary(uk.UTF-8):   Простий у використанні текстовий редактор
+Summary(de.UTF-8):	Einfach handzuhabender Editor
+Summary(es.UTF-8):	Editor fácil de usar
+Summary(fr.UTF-8):	Éditeur facile à utiliser
+Summary(pl.UTF-8):	Łatwy w użyciu edytor tekstowy
+Summary(pt_BR.UTF-8):	Editor fácil de usar
+Summary(ru.UTF-8):	Простой в использовании текстовый редактор
+Summary(tr.UTF-8):	Kolay kullanımlı metin düzenleyici
+Summary(uk.UTF-8):	Простий у використанні текстовий редактор
 Name:		joe
 Version:	3.5
 Release:	1
