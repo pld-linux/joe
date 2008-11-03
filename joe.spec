@@ -11,13 +11,13 @@ Summary(ru.UTF-8):	Простой в использовании текстовы
 Summary(tr.UTF-8):	Kolay kullanımlı metin düzenleyici
 Summary(uk.UTF-8):	Простий у використанні текстовий редактор
 Name:		joe
-Version:	3.6
-Release:	1
+Version:	3.7
+Release:	0.1
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
 Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
-# Source0-md5:	0e48931e116d659f71f1f552947f9842
+# Source0-md5:	66de1b073e869ba12abbfcde3885c577
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
@@ -124,13 +124,21 @@ done
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
+# remove bogus doc dir
+rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
+# po/*.po files don't fit anywhere and looks like they're broken too.
+# I'm removing them for now. Please check back in the next version/release.
+rm -fr $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LIST NEWS README TODO
+%doc ChangeLog HACKING LIST NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
+%{_datadir}/%{name}/charmaps/klingon
+%{_datadir}/%{name}/syntax/*.jsf
 %dir %{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %{_mandir}/man1/*
