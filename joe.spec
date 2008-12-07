@@ -12,7 +12,7 @@ Summary(tr.UTF-8):	Kolay kullanımlı metin düzenleyici
 Summary(uk.UTF-8):	Простий у використанні текстовий редактор
 Name:		joe
 Version:	3.7
-Release:	0.2
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
