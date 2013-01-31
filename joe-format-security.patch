@@ -1,0 +1,162 @@
+diff -urN joe-3.7/b.c joe-3.7.new/b.c
+--- joe-3.7/b.c	2008-11-02 21:59:06.000000000 +0100
++++ joe-3.7.new/b.c	2013-01-31 12:58:47.744341276 +0100
+@@ -2994,7 +2994,7 @@
+ 			if (b->name)
+ 				fprintf(ttsig_f, (char *)joe_gettext(_("\n*** File \'%s\'\n")), b->name);
+ 			else
+-				fprintf(ttsig_f, (char *)joe_gettext(_("\n*** File \'(Unnamed)\'\n")));
++				fputs((char *)joe_gettext(_("\n*** File \'(Unnamed)\'\n")), ttsig_f);
+ 			fflush(ttsig_f);
+ 			bsavefd(b->bof, fileno(ttsig_f), b->eof->byte);
+ 		}
+diff -urN joe-3.7/cmd.c joe-3.7.new/cmd.c
+--- joe-3.7/cmd.c	2008-11-02 02:31:59.000000000 +0100
++++ joe-3.7.new/cmd.c	2013-01-31 13:04:09.836568627 +0100
+@@ -231,7 +231,7 @@
+ 			if(bf1[0])
+ 				joe_snprintf_1(bf,sizeof(bf),joe_gettext(LOCKMSG1),bf1);
+ 			else
+-				joe_snprintf_0(bf,sizeof(bf),joe_gettext(LOCKMSG2));
++				joe_snprintf_1(bf,sizeof(bf),"%s", joe_gettext(LOCKMSG2));
+ 			if (mkqw(bw->parent, sz(bf), steal_lock, NULL, b, notify)) {
+ 				return 0;
+ 			} else {
+@@ -289,7 +289,7 @@
+ 			if(bf1[0])
+ 				joe_snprintf_1(bf,sizeof(bf),joe_gettext(LOCKMSG1),bf1);
+ 			else
+-				joe_snprintf_0(bf,sizeof(bf),joe_gettext(LOCKMSG2));
++				joe_snprintf_1(bf,sizeof(bf),"%s", joe_gettext(LOCKMSG2));
+ 			if (mkqw(bw->parent, sz(bf), steal_lock, NULL, b, NULL)) {
+ 				uquery(bw);
+ 				if (!b->locked)
+diff -urN joe-3.7/main.c joe-3.7.new/main.c
+--- joe-3.7/main.c	2008-10-27 04:01:11.000000000 +0100
++++ joe-3.7.new/main.c	2013-01-31 13:05:46.226046440 +0100
+@@ -204,7 +204,7 @@
+ 
+ #ifndef __MSDOS__
+ 	if (!(cap = my_getcap(NULL, 9600, NULL, NULL))) {
+-		fprintf(stderr, (char *)joe_gettext(_("Couldn't load termcap/terminfo entry\n")));
++		fputs((char *)joe_gettext(_("Couldn't load termcap/terminfo entry\n")), stderr);
+ 		return 1;
+ 	}
+ #endif
+@@ -356,7 +356,7 @@
+ 	donerc:
+ 
+ 	if (validate_rc()) {
+-		fprintf(stderr,(char *)joe_gettext(_("rc file has no :main key binding section or no bindings.  Bye.\n")));
++		fputs((char *)joe_gettext(_("rc file has no :main key binding section or no bindings.  Bye.\n")), stderr);
+ 		return 1;
+ 	}
+ 
+diff -urN joe-3.7/rc.c joe-3.7.new/rc.c
+--- joe-3.7/rc.c	2008-11-02 21:33:45.000000000 +0100
++++ joe-3.7.new/rc.c	2013-01-31 13:09:14.191586461 +0100
+@@ -1489,9 +1489,9 @@
+ 
+ 	/* Print proper ending string */
+ 	if (err)
+-		fprintf(stderr, (char *)joe_gettext(_("\ndone\n")));
++		fputs((char *)joe_gettext(_("\ndone\n")), stderr);
+ 	else
+-		fprintf(stderr, (char *)joe_gettext(_("done\n")));
++		fputs((char *)joe_gettext(_("done\n")), stderr);
+ 
+ 	return err;		/* 0 for success, 1 for syntax error */
+ }
+diff -urN joe-3.7/scrn.c joe-3.7.new/scrn.c
+--- joe-3.7/scrn.c	2008-11-01 04:00:33.000000000 +0100
++++ joe-3.7.new/scrn.c	2013-01-31 13:07:17.735550691 +0100
+@@ -717,7 +717,7 @@
+ 	signrm();
+         fprintf(stderr,"cm=%p ch=%p cv=%p ho=%p lf=%p DO=%p ll=%p up=%p UP=%p cr=%p\n",
+                        t->cm, t->ch, t->cv, t->ho, t->lf, t->DO, t->ll, t->up, t->UP, t->cr);
+-	fprintf(stderr,(char *)joe_gettext(_("Sorry, your terminal can't do absolute cursor positioning.\nIt's broken\n")));
++	fputs((char *)joe_gettext(_("Sorry, your terminal can't do absolute cursor positioning.\nIt's broken\n")), stderr);
+ 	return NULL;
+       ok:
+ 
+diff -urN joe-3.7/termcap.c joe-3.7.new/termcap.c
+--- joe-3.7/termcap.c	2006-07-19 16:07:43.000000000 +0200
++++ joe-3.7.new/termcap.c	2013-01-31 13:11:55.330713497 +0100
+@@ -213,7 +213,7 @@
+  joe_free(cap);
+  return 0;
+ */
+-		fprintf(stderr, (char *)joe_gettext(_("Couldn't load termcap entry.  Using ansi default\n")));
++		fputs((char *)joe_gettext(_("Couldn't load termcap entry.  Using ansi default\n")), stderr);
+ 		ti = 0;
+ 		cap->tbuf = vsncpy(cap->tbuf, 0, sc(defentry));
+ 		goto checktc;
+diff -urN joe-3.7/tty.c joe-3.7.new/tty.c
+--- joe-3.7/tty.c	2008-11-02 21:53:40.000000000 +0100
++++ joe-3.7.new/tty.c	2013-01-31 14:02:45.349518722 +0100
+@@ -323,7 +323,7 @@
+ 
+ 	if (!termin) {
+ 		if (idleout ? (!(termin = stdin) || !(termout = stdout)) : (!(termin = fopen("/dev/tty", "r")) || !(termout = fopen("/dev/tty", "w")))) {
+-			fprintf(stderr, (char *)joe_gettext(_("Couldn\'t open /dev/tty\n")));
++			fputs((char *)joe_gettext(_("Couldn\'t open /dev/tty\n")), stderr);
+ 			exit(1);
+ 		} else {
+ #ifdef SIGWINCH
+@@ -740,7 +740,7 @@
+ 		if (cmd)
+ 			execl((char *)s, (char *)s, "-c", cmd, NULL);
+ 		else {
+-			fprintf(stderr, (char *)joe_gettext(_("You are at the command shell.  Type 'exit' to return\n")));
++			fputs((char *)joe_gettext(_("You are at the command shell.  Type 'exit' to return\n")), stderr);
+ 			execl((char *)s, (char *)s, NULL);
+ 		}
+ 		_exit(0);
+@@ -804,7 +804,7 @@
+ 	omode = ttymode;
+ 	mpxsusp();
+ 	ttclsn();
+-	fprintf(stderr, (char *)joe_gettext(_("You have suspended the program.  Type 'fg' to return\n")));
++	fputs((char *)joe_gettext(_("You have suspended the program.  Type 'fg' to return\n")), stderr);
+ 	kill(0, SIGTSTP);
+ #ifdef junk
+ 	/* Hmmm... this should not have been necessary */
+diff -urN joe-3.7/uerror.c joe-3.7.new/uerror.c
+--- joe-3.7/uerror.c	2006-07-19 02:27:13.000000000 +0200
++++ joe-3.7.new/uerror.c	2013-01-31 14:04:09.697881996 +0100
+@@ -327,7 +327,7 @@
+ 	if (n)
+ 		joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("%d messages found")), n);
+ 	else
+-		joe_snprintf_0(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("No messages found")));
++		joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, "%s", joe_gettext(_("No messages found")));
+ 	msgnw(bw->parent, msgbuf);
+ 	return 0;
+ }
+@@ -341,7 +341,7 @@
+ 	if (n)
+ 		joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("%d messages found")), n);
+ 	else
+-		joe_snprintf_0(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("No messages found")));
++		joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, "%s", joe_gettext(_("No messages found")));
+ 	msgnw(bw->parent, msgbuf);
+ 	return 0;
+ }
+diff -urN joe-3.7/ufile.c joe-3.7.new/ufile.c
+--- joe-3.7/ufile.c	2008-11-02 21:39:52.000000000 +0100
++++ joe-3.7.new/ufile.c	2013-01-31 14:09:13.937220615 +0100
+@@ -62,11 +62,11 @@
+ {
+ 	if (saved)
+ 		if (skipped)
+-			joe_snprintf_0(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("Some files have not been saved.")));
++			joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, "%s", joe_gettext(_("Some files have not been saved.")));
+ 		else
+-			joe_snprintf_0(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("All modified files have been saved.")));
++			joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, "%s", joe_gettext(_("All modified files have been saved.")));
+ 	else
+-		joe_snprintf_0(msgbuf, JOE_MSGBUFSIZE, joe_gettext(_("No modified files, so no updates needed.")));
++		joe_snprintf_1(msgbuf, JOE_MSGBUFSIZE, "%s", joe_gettext(_("No modified files, so no updates needed.")));
+ 
+ 	msgnw(bw->parent, msgbuf);
+ 

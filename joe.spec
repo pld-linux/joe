@@ -25,6 +25,8 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-spaceblank.patch
 Patch2:		%{name}-asis.patch
+Patch3:		%{name}-am.patch
+Patch4:		%{name}-format-security.patch
 URL:		http://sourceforge.net/projects/joe-editor/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -90,6 +92,8 @@ Joe - це дружній, простий у використанні текст
 %patch0 -p0
 #%patch1 -p0
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 %{__aclocal}
