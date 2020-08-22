@@ -1,0 +1,64 @@
+--- joe-4.6/desktop/joe.desktop.orig	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/desktop/joe.desktop	2020-08-22 13:15:59.270757617 +0200
+@@ -3,10 +3,11 @@
+ Name=Joe's Own Editor
+ GenericName=Text Editor
+ Comment=View and edit files
++Comment[pl]=Podgląd i edycja plików
+ MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+ Exec=/usr/bin/joe %F
+ TryExec=joe
+-Icon=accessories-text-editor
++Icon=joe
+ Type=Application
+ Terminal=true
+-Categories=Utility;Development;TextEditor;
++Categories=Utility;Development;TextEditor;ConsoleOnly;
+--- joe-4.6/desktop/jmacs.desktop.orig	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/desktop/jmacs.desktop	2020-08-22 13:16:19.777313190 +0200
+@@ -3,10 +3,11 @@
+ Name=Joe's Own Editor - EMACS Emulation
+ GenericName=Text Editor
+ Comment=View and edit files
++Comment[pl]=Podgląd i edycja plików
+ MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+ Exec=/usr/bin/jmacs %F
+ TryExec=jmacs
+-Icon=accessories-text-editor
++Icon=joe
+ Type=Application
+ Terminal=true
+-Categories=Utility;Development;TextEditor;
++Categories=Utility;Development;TextEditor;ConsoleOnly;
+--- joe-4.6/desktop/jpico.desktop.orig	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/desktop/jpico.desktop	2020-08-22 13:16:40.550533986 +0200
+@@ -3,10 +3,11 @@
+ Name=Joe's Own Editor - NANO/PICO Emulation
+ GenericName=Text Editor
+ Comment=View and edit files
++Comment[pl]=Podgląd i edycja plików
+ MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+ Exec=/usr/bin/jpico %F
+ TryExec=jpico
+-Icon=accessories-text-editor
++Icon=joe
+ Type=Application
+ Terminal=true
+-Categories=Utility;Development;TextEditor;
++Categories=Utility;Development;TextEditor;ConsoleOnly;
+--- joe-4.6/desktop/jstar.desktop.orig	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/desktop/jstar.desktop	2020-08-22 13:17:04.563737228 +0200
+@@ -3,10 +3,11 @@
+ Name=Joe's Own Editor - WordStar Emulation
+ GenericName=Text Editor
+ Comment=View and edit files
++Comment[pl]=Podgląd i edycja plików
+ MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+ Exec=/usr/bin/jstar %F
+ TryExec=jstar
+-Icon=accessories-text-editor
++Icon=joe
+ Type=Application
+ Terminal=true
+-Categories=Utility;Development;TextEditor;
++Categories=Utility;Development;TextEditor;ConsoleOnly;

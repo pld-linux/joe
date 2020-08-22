@@ -1,6 +1,3 @@
-# TODO:
-#  - port / fix -spaceblank patch
-#
 Summary:	Easy to use editor
 Summary(de.UTF-8):	Einfach handzuhabender Editor
 Summary(es.UTF-8):	Editor fácil de usar
@@ -11,29 +8,27 @@ Summary(ru.UTF-8):	Простой в использовании текстовы
 Summary(tr.UTF-8):	Kolay kullanımlı metin düzenleyici
 Summary(uk.UTF-8):	Простий у використанні текстовий редактор
 Name:		joe
-Version:	3.7
-Release:	2
+Version:	4.6
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
-Source0:	http://dl.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
-# Source0-md5:	66de1b073e869ba12abbfcde3885c577
+Source0:	http://downloads.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
+# Source0-md5:	9017484e6116830d846678b625ea5c43
 Source1:	%{name}.png
-Source2:	%{name}.desktop
-Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
-# Source3-md5:	47d050baa065ec9095d9d99217749abb
+Source2:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+# Source2-md5:	47d050baa065ec9095d9d99217749abb
 Patch0:		%{name}-pl_man.patch
-Patch1:		%{name}-spaceblank.patch
-Patch2:		%{name}-asis.patch
-Patch3:		%{name}-am.patch
-Patch4:		%{name}-format-security.patch
+Patch1:		%{name}-asis.patch
+Patch2:		%{name}-am.patch
+Patch3:		%{name}-desktop.patch
 URL:		http://sourceforge.net/projects/joe-editor/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	ncurses-devel >= 5.0
+BuildRequires:	rpmbuild(macros) >= 1.198
+Requires(post,postun):	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_sysconfdir	/etc/joe
 
 %description
 Joe is a friendly and easy to use editor. It has a nice interface and
@@ -88,19 +83,18 @@ Joe - це дружній, простий у використанні текст
 розробки програм фірми Borland (так званий стандарт WordStar).
 
 %prep
-%setup -q -a3
+%setup -q -a2
 %patch0 -p0
-#%patch1 -p0
+%patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure \
-	--sysconfdir=/etc
+%configure
+
 %{__make}
 
 %install
@@ -112,45 +106,64 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 for a in hu pl ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$a/man1
-	install $a/man1/joe.1 $RPM_BUILD_ROOT%{_mandir}/$a/man1
+	cp -p $a/man1/joe.1 $RPM_BUILD_ROOT%{_mandir}/$a/man1
 done
 
-install -d $RPM_BUILD_ROOT%{_mandir}/ru/man1
-install man/ru/joe.1 $RPM_BUILD_ROOT%{_mandir}/ru/man1
+#install -d $RPM_BUILD_ROOT%{_mandir}/ru/man1
+#install man/ru/joe.1 $RPM_BUILD_ROOT%{_mandir}/ru/man1
 
 for a in "" hu pl ru ; do
-	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jstar.1
-	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jmacs.1
-	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/rjoe.1
-	echo ".so joe" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jpico.1
+	echo ".so joe.1" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jstar.1
+	echo ".so joe.1" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jmacs.1
+	echo ".so joe.1" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/rjoe.1
+	echo ".so joe.1" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jpico.1
 done
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 # remove bogus doc dir
-rm -fr $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
-# po/*.po files don't fit anywhere and looks like they're broken too.
-# I'm removing them for now. Please check back in the next version/release.
-rm -fr $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%update_desktop_database
+
+%postun
+%update_desktop_database
+
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog HACKING LIST NEWS README TODO
-%attr(755,root,root) %{_bindir}/*
+%doc ChangeLog NEWS.md README.md
+%attr(755,root,root) %{_bindir}/joe
+%attr(755,root,root) %{_bindir}/jmacs
+%attr(755,root,root) %{_bindir}/jpico
+%attr(755,root,root) %{_bindir}/jstar
+%attr(755,root,root) %{_bindir}/rjoe
 %dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/charmaps
-%dir %{_datadir}/%{name}/syntax
-%{_datadir}/%{name}/charmaps/klingon
-%{_datadir}/%{name}/syntax/*.jsf
-%dir %{_sysconfdir}
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
-%{_mandir}/man1/*
-%lang(hu) %{_mandir}/hu/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
-%lang(ru) %{_mandir}/ru/man1/*
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_datadir}/%{name}/charmaps
+%{_datadir}/%{name}/colors
+%dir %{_datadir}/%{name}/lang
+# joe uses custom gettext implementation, reading pure .po files
+%lang(de) %{_datadir}/%{name}/lang/de.po
+%lang(fr) %{_datadir}/%{name}/lang/fr.po
+%lang(ru) %{_datadir}/%{name}/lang/ru.po
+%lang(uk) %{_datadir}/%{name}/lang/uk.po
+%lang(zh_TW) %{_datadir}/%{name}/lang/zh_TW.po
+%{_datadir}/%{name}/syntax
+%dir %{_sysconfdir}/joe
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/joe/*
+%{_mandir}/man1/joe.1*
+%{_mandir}/man1/jmacs.1*
+%{_mandir}/man1/jpico.1*
+%{_mandir}/man1/jstar.1*
+%{_mandir}/man1/rjoe.1*
+%lang(hu) %{_mandir}/hu/man1/*.1*
+%lang(pl) %{_mandir}/pl/man1/*.1*
+%lang(ru) %{_mandir}/ru/man1/*.1*
+%{_desktopdir}/joe.desktop
+%{_desktopdir}/jmacs.desktop
+%{_desktopdir}/jpico.desktop
+%{_desktopdir}/jstar.desktop
+%{_pixmapsdir}/joe.png

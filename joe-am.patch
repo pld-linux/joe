@@ -1,12 +1,11 @@
-diff -urN joe-3.7/configure.ac joe-3.7.new/configure.ac
---- joe-3.7/configure.ac	2008-10-30 04:06:44.000000000 +0100
-+++ joe-3.7.new/configure.ac	2013-01-31 12:51:36.243345584 +0100
+--- joe-4.6/configure.ac.orig	2020-08-22 11:31:09.104834368 +0200
++++ joe-4.6/configure.ac	2020-08-22 11:36:53.062970988 +0200
 @@ -14,7 +14,7 @@
  # Init automake
  AM_INIT_AUTOMAKE
  AM_MAINTAINER_MODE
--AM_CONFIG_HEADER(autoconf.h)
-+AC_CONFIG_HEADERS(autoconf.h)
+-AM_CONFIG_HEADER(joe/autoconf.h)
++AC_CONFIG_HEADERS(joe/autoconf.h)
  
  # Checks for programs.
  AC_PROG_CC
