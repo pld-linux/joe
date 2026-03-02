@@ -1,7 +1,8 @@
---- joe-3.4/rc/jmacsrc.in.orig	2005-05-03 19:32:26.000000000 +0200
-+++ joe-3.4/rc/jmacsrc.in	2005-06-18 20:21:12.000000000 +0200
-@@ -53,7 +53,7 @@
- -mid		Cursor is recentered when scrolling is necessary
+diff -urNp -x '*.orig' joe-4.6.org/rc/jmacsrc.in joe-4.6/rc/jmacsrc.in
+--- joe-4.6.org/rc/jmacsrc.in	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/rc/jmacsrc.in	2026-03-03 00:14:39.953285294 +0100
+@@ -27,7 +27,7 @@
+  -right nn	Amount to jump right when scrolling is necessary (-1 for 1/4 width)
  -marking	Text between ^KB and cursor is highlighted
  -lightoff	Turn off highlighting after block copy or move
 - -asis		Characters 128 - 255 shown as-is
@@ -9,9 +10,10 @@
   -force		Force final newline when files are saved
   -nolocks	If you don't want file locks to be used
   -nomodcheck	Disable periodic checking of disk file newer than buffer
---- joe-3.4.orig/rc/joerc.in	Mon Dec 10 17:48:54 2001
-+++ joe-3.4/rc/joerc.in	Thu Mar 21 19:50:39 2002
-@@ -24,7 +24,7 @@
+diff -urNp -x '*.orig' joe-4.6.org/rc/joerc.in joe-4.6/rc/joerc.in
+--- joe-4.6.org/rc/joerc.in	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/rc/joerc.in	2026-03-03 00:14:39.953663405 +0100
+@@ -27,7 +27,7 @@
  
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
  
@@ -20,31 +22,34 @@
  
   -force		Force final newline when files are saved
  
---- joe-3.4.orig/rc/jpicorc.in	Mon Oct 29 15:39:51 2001
-+++ joe-3.4/rc/jpicorc.in	Thu Mar 21 19:51:29 2002
-@@ -24,7 +24,7 @@
+diff -urNp -x '*.orig' joe-4.6.org/rc/jpicorc.in joe-4.6/rc/jpicorc.in
+--- joe-4.6.org/rc/jpicorc.in	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/rc/jpicorc.in	2026-03-03 00:14:39.953969707 +0100
+@@ -30,7 +30,7 @@
  
- -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
+ -lightoff	Turn off highlighting after block copy or move
  
 - -asis		Characters 128 - 255 shown as-is
 +-asis		Characters 128 - 255 shown as-is
  
  -force		Force final newline when files are saved
  
---- joe-3.4.orig/rc/jstarrc.in	Mon Oct 29 15:39:51 2001
-+++ joe-3.4/rc/jstarrc.in	Thu Mar 21 19:50:34 2002
-@@ -22,7 +22,7 @@
- 
-  -mid		Cursor is recentered when scrolling is necessary
+diff -urNp -x '*.orig' joe-4.6.org/rc/jstarrc.in joe-4.6/rc/jstarrc.in
+--- joe-4.6.org/rc/jstarrc.in	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/rc/jstarrc.in	2026-03-03 00:14:39.954278806 +0100
+@@ -24,7 +24,7 @@
+  -left nn	Amount to jump left when scrolling is necessary (-1 for 1/4 width)
+  -right nn	Amount to jump right when scrolling is necessary (-1 for 1/4 width)
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
 - -asis		Characters 128 - 255 shown as-is
 +-asis		Characters 128 - 255 shown as-is
   -force		Force final newline when files are saved
-  -nobackups	If you don't want backup files to be created
-  -lightoff	Turn off highlighting after block copy or move
---- joe-3.4.orig/rc/rjoerc.in	Mon Oct 29 15:39:52 2001
-+++ joe-3.4/rc/rjoerc.in	Thu Mar 21 19:50:30 2002
-@@ -24,7 +24,7 @@
+  -nolocks	If you don't want file locks to be used
+  -nomodcheck	Disable periodic checking of disk file newer than buffer
+diff -urNp -x '*.orig' joe-4.6.org/rc/rjoerc.in joe-4.6/rc/rjoerc.in
+--- joe-4.6.org/rc/rjoerc.in	2018-01-10 17:28:34.000000000 +0100
++++ joe-4.6/rc/rjoerc.in	2026-03-03 00:14:39.954518086 +0100
+@@ -28,7 +28,7 @@
  
   -marking	Text between ^KB and cursor is highlighted (use with -lightoff)
  
