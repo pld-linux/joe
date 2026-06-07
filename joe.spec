@@ -8,23 +8,23 @@ Summary(ru.UTF-8):	Простой в использовании текстовы
 Summary(tr.UTF-8):	Kolay kullanımlı metin düzenleyici
 Summary(uk.UTF-8):	Простий у використанні текстовий редактор
 Name:		joe
-Version:	4.6
-Release:	3
+Version:	4.8
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Applications/Editors
-Source0:	http://downloads.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
-# Source0-md5:	9017484e6116830d846678b625ea5c43
+Source0:	https://downloads.sourceforge.net/joe-editor/%{name}-%{version}.tar.gz
+# Source0-md5:	c7775e557f97036a162312e2bd33a4d6
 Source1:	%{name}.png
-Source2:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+Source2:	%{name}-non-english-man-pages.tar.bz2
 # Source2-md5:	47d050baa065ec9095d9d99217749abb
 Patch0:		%{name}-pl_man.patch
 Patch1:		%{name}-asis.patch
-Patch2:		%{name}-am.patch
 Patch3:		%{name}-desktop.patch
-URL:		http://sourceforge.net/projects/joe-editor/
-BuildRequires:	autoconf >= 2.54
+URL:		https://joe-editor.sourceforge.io/
+BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
+BuildRequires:	libselinux-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	rpmbuild(macros) >= 1.198
 Requires(post,postun):	desktop-file-utils
@@ -86,7 +86,6 @@ Joe - це дружній, простий у використанні текст
 %setup -q -a2
 %patch -P0 -p0
 %patch -P1 -p1
-%patch -P2 -p1
 %patch -P3 -p1
 
 %build
@@ -108,9 +107,6 @@ for a in hu pl ; do
 	install -d $RPM_BUILD_ROOT%{_mandir}/$a/man1
 	cp -p $a/man1/joe.1 $RPM_BUILD_ROOT%{_mandir}/$a/man1
 done
-
-#install -d $RPM_BUILD_ROOT%{_mandir}/ru/man1
-#install man/ru/joe.1 $RPM_BUILD_ROOT%{_mandir}/ru/man1
 
 for a in "" hu pl ru ; do
 	echo ".so joe.1" > $RPM_BUILD_ROOT%{_mandir}/$a/man1/jstar.1
